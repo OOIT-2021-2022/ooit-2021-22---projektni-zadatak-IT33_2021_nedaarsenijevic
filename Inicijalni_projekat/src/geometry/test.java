@@ -4,7 +4,7 @@ public class test {
 
 	public static void main(String[] args) {
 
-		point p= new point ();
+		point p= new point (); //poziv konstruktora bez parametra
 		p.setX(6);
 		p.setY(5);
 		p.setSelected(true);
@@ -35,6 +35,29 @@ public class test {
 		p1.setY(23);
 		l1.setEndPoint(p1);
 		l1.getEndPoint().setY(23);
+		
+		
+		
+		point p2 = new point (50, 100);
+		Line l2 = new Line (p2, new point (400,500));
+		Rectengle r2 = new Rectengle (p1, 50, 80);
+		
+		System.out.println(p2);
+		System.out.println(p1);
+		System.out.println(l2);
+		System.out.println(r2);
+		System.out.println(p2.equals(p1));
+		System.out.println(p2.equals(l2)); //ne mozemo poreditit tacku i liniju
+		
+		p1.setX(50);
+		p1.setY(100);
+		System.out.println(p2.equals(p1)); //sada dobijamo true jer imaju iste koordinate
+		
+		System.out.println(p2 instanceof point); //true
+		System.out.println(p2 instanceof Rectengle); //false
+		System.out.println(p2 instanceof Object); //sve je instanca klase object
+		
+		
 	}
 	
 }
