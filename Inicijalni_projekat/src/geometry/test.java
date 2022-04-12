@@ -61,3 +61,5 @@ public class test {
 	}
 	
 }
+//OVERLOADING I OVERRIDE (nasledjivanje)
+//NASLEDJIVANJE KLASE EXTENDS JE KLJUCNA REC!!

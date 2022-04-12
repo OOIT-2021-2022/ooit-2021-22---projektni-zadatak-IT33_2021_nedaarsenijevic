@@ -1,5 +1,7 @@
 package geometry;
 
+import java.awt.Point;
+
 public class Rectengle {
 	
 	private point upperLeft;
@@ -24,6 +26,15 @@ public class Rectengle {
 	public Rectengle (point upperLeft, int width, int height, boolean selected) {
 		this(upperLeft, width, height );
 		this.selected = selected;
+	}
+	
+	public boolean contains(int x, int y) {
+		return (upperLeft.getX() <x && upper.Left.getX() + width > x && upper.Left.getY() > y );
+	}
+	
+	public boolean contains(Point p) {
+		return (upperLeft.getX() < p.getX() && upperLeft.getX() + width > p.getX()
+				&& upperLeft.getY < p.getY() && upperLeft.getY() + height > p.getY());
 	}
 	
 	//Povrsina pravougaonika
@@ -94,7 +105,8 @@ public class Rectengle {
 // 4 zadatak za domaci
 //kako postaviti na github
 
-
+//zavrsiti contains za sve klase
+//2zadatak overloading
 
 
 
