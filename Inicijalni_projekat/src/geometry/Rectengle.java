@@ -1,13 +1,14 @@
 package geometry;
 
+import java.awt.Graphics;
 import java.awt.Point;
 
-public class Rectengle {
+public class Rectengle extends Shape {
 	
 	private point upperLeft;
 	private int width;
 	private int height;
-	private boolean selected;
+
 	
 	//Konstruktori
 	
@@ -25,7 +26,7 @@ public class Rectengle {
 	
 	public Rectengle (point upperLeft, int width, int height, boolean selected) {
 		this(upperLeft, width, height );
-		this.selected = selected;
+		setSelected(selected);
 	}
 	
 	public boolean contains(int x, int y) {
@@ -72,30 +73,33 @@ public class Rectengle {
 		this.height=height;
 	}
 	
-	public boolean isSelected () {
-		return selected;
-	}
 	
-	public void setSelected(boolean selected) {
-		this.selected=selected;
-	}
 	
 	public String toString () {
 		
 		return "upper Left point: " + upperLeft + " ,width " + width + ",height" + height;
 		
 	}
-	
-	public boolean equals(Object obj) {
-		if (obj instanceof Rectengle) {
-			Rectengle pomocna = (Rectegnle) obj;
-			if (this.upperLeft.equals(pomocna.upperLeft()) && this.width == pomocna.width && this.height == pomocna.height) { //ovde smo uporedili tacke
-				return true;
-			} else {
-				return false;
-			}
-			}
+
+
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
+		
 	}
+	
+	//public boolean equals(Object obj) { ovo zavrsiti
+		//if (obj instanceof Rectengle) {
+			//Rectengle pomocna = (Rectegnle) obj;
+			//if (this.upperLeft.equals(pomocna.upperLeft()) && this.width == pomocna.width && this.height == pomocna.height) { //ovde smo uporedili tacke
+				//return true;
+			//} else {
+				//return false;
+			//}
+			//}
+	//}
 	
 
 }

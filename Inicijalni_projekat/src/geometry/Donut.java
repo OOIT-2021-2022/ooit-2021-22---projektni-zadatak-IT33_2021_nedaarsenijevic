@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Graphics;
 import java.awt.Point;
 
 public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz klase circle
@@ -35,11 +36,11 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 	}
 	
 	public boolean contains(Point p) {
-		return super.contains(p) && getCenter()distance(p.getX(), p.getY() >= innerRadius;
+		return super.contains(p) && getCenter()distance(p.getX(), p.getY() >= innerRadius);
 	}
 	
 	public String toString [] {
-		return super.toString() + " , innerRadius " + " "
+		return super.toString() + " , innerRadius " + " " ;
 	}
 	
 	public boolean equals(Object obj) {
@@ -61,6 +62,11 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 		return innerRadius;
 	}
 	
+	public void draw(Graphics g) {
+		super.(draw); //ovo iscrta spoljasnji krug
+		g.drawOval(getCenter().getX() - innerRadius, getCenter().getY() - innerRadius, innerRadius*2, innerRadius*2);
+		
+	}
 	//1.REDEFINISATI OVERRIDE METODE IZ KLASE CIRCLE
 
 }

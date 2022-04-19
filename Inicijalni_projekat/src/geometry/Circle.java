@@ -1,9 +1,11 @@
 package geometry;
 
-public class Circle {
+import java.awt.Graphics;
+
+public class Circle extends Shape {
 	private point center;
 	private int radius;
-	private boolean selected;
+	
 	
 	//Konstruktori , treba da imamo tri konstruktora!! TO ZAVRSITI
 	public Circle () {
@@ -56,27 +58,27 @@ public class Circle {
 		this.radius = radius;
 	}
 	
-	public boolean isSelected () {
-		return selected;
+	
+	
+	//**public String toString () {
+		//return "Center poi
+	//}
+	
+	//public boolean equals(Object obj) { //radimo kastovanje
+		//if(obj) instanceof Circle {
+		//Circle  pomocni = (Circle) obj; //Proveravamo da li je instanca
+	//if(pomocni.getCenter()eguals(center) && pomocni.getRadius() == radius)
+		//return true;
+	//else false;
+		//}
+		//return false;
+	//}
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		g.drawOval(center.getX() - radius, center.getY() - radius, radius*2,  radius*2);
 		
-	}
-	
-	public void setSelected (boolean selected) {
-		this.selected = selected;
-	}
-	
-	public String toString () {
-		return "Center poi
-	}
-	
-	public boolean equals(Object obj) { //radimo kastovanje
-		if(obj) instanceof Circle {
-		Circle  pomocni = (Circle) obj; //Proveravamo da li je instanca
-	if(pomocni.getCenter()eguals(center) && pomocni.getRadius() == radius)
-		return true;
-	else false;
-		}
-		return false;
 	}
 }
  

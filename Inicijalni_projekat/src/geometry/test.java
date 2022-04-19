@@ -54,7 +54,7 @@ public class test {
 		System.out.println(p2.equals(p1)); //sada dobijamo true jer imaju iste koordinate
 		
 		System.out.println(p2 instanceof point); //true
-		System.out.println(p2 instanceof Rectengle); //false
+		//System.out.println(p2 instanceof Rectengle); //false
 		System.out.println(p2 instanceof Object); //sve je instanca klase object
 		
 		
@@ -63,3 +63,9 @@ public class test {
 }
 //OVERLOADING I OVERRIDE (nasledjivanje)
 //NASLEDJIVANJE KLASE EXTENDS JE KLJUCNA REC!!
+//SESTE VEZBE TEORIJA apsrakcijaa klasa
+//interfejs je potpuna apstrakcija
+//imamo i neapstraktne metode kao i apstraktne
+//apstraktne metode su metode koje nemaju implementaciju vec imamo samo njen potpis - za ispit
+//apstraktne metode nemaju telo {}
+//apstraktne klase ne mogu biti istancirane ali imaju konstruktore kako bi inicijalizovale vrednosti izvedenih klasa

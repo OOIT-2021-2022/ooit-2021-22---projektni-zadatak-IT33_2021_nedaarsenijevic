@@ -1,10 +1,10 @@
 package geometry;
 
-public class Line {
+public class Line extends Shape {
 	
 	private point startPoint;
 	private point endPoint;
-	private boolean selected;
+	
 	
 	
 	//Konstruktori
@@ -21,7 +21,7 @@ public class Line {
 	
 	public Line (point startPoint, point endPoint, boolean selected) {
 		this(startPoint, endPoint);
-		this.selected = selected;
+		setSelected(selected);
 	}
 	
 	
@@ -48,13 +48,6 @@ public class Line {
 		this.endPoint = endPoint;
 	}
 	
-	public boolean isSelected() {
-		return selected;
-	}
-	
-	public void setSelected(boolean selected) {
-		this.selected=selected;
-	}
 	
 	
 	public boolean equals(Object obj) {
@@ -76,6 +69,9 @@ public class Line {
 		
 	}
 	
+	public void draw(Graphich g) {
+		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
+	}
 
 	
 
