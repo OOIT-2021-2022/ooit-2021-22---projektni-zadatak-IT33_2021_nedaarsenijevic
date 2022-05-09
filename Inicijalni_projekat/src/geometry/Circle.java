@@ -3,22 +3,28 @@ package geometry;
 import java.awt.Graphics;
 
 public class Circle extends Shape {
-	private point center;
+	private Point center;
 	private int radius;
+	private boolean selected;
 	
 	
-	//Konstruktori , treba da imamo tri konstruktora!! TO ZAVRSITI
+	//Konstruktori , treba da imamo tri konstruktora!! Prvi konstruktor je prazan
 	public Circle () {
 		
 	}
 	
-	public Circle (point center, int radius) {
+	public Circle (Point center, int radius) {
 		this.center= center;
+		this.radius= radius;
 	}
 	
-	public boolean contains (int x, int y) {
+	public Circle (Point center, int radius, boolean selected) {
+		this(center,radius);
+		this.selected = selected;
+		setSelected(selected);
 		
 	}
+	
 	
 	
 	//OVERLOADING
@@ -28,7 +34,7 @@ public class Circle extends Shape {
 	}
 	
 	public boolean contains (Point p) {
-		return center.distance()
+		return center.distance(p.getX(), p.getY()) <= radius;
 	}
 
 	//Povrsina kruga ovde povratni tip mora biti double ne moze int jer imamo PI
@@ -41,12 +47,22 @@ public class Circle extends Shape {
 		return 2*radius*Math.PI;
 	}
 	
+	public boolean equals(Object obj) { //Radimo kastovanje
+		if(obj instanceof Circle) {
+			Circle pomocni = (Circle) obj; //Proveravamo da li je instanca
+			if(pomocni.getCenter().equals(center) && pomocni.getRadius() == radius) 
+				return true;
+			return false;
+		}
+		return false;
+		
+	}
 	//Metode pristupa
-	public point getCenter() {
+	public Point getCenter() {
 		return center;
 	}
 	
-	public void setCenter(point center) {
+	public void setCenter(Point center) {
 		this.center = center;
 	}
 	
@@ -58,22 +74,20 @@ public class Circle extends Shape {
 		this.radius = radius;
 	}
 	
+	public boolean isSelected() {
+		return selected;
+	}
+	
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+	
+	public String toString () {
+		return "Center point =" + "radius =" + radius;
+	}
 	
 	
-	//**public String toString () {
-		//return "Center poi
-	//}
 	
-	//public boolean equals(Object obj) { //radimo kastovanje
-		//if(obj) instanceof Circle {
-		//Circle  pomocni = (Circle) obj; //Proveravamo da li je instanca
-	//if(pomocni.getCenter()eguals(center) && pomocni.getRadius() == radius)
-		//return true;
-	//else false;
-		//}
-		//return false;
-	//}
-
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
