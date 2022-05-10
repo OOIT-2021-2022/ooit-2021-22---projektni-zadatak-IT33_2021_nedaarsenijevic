@@ -1,9 +1,9 @@
 package geometry;
 
-public class Line extends Shape {
+public abstract class Line extends Shape {
 	
-	private point startPoint;
-	private point endPoint;
+	private Point startPoint;
+	private Point endPoint;
 	
 	
 	
@@ -13,13 +13,13 @@ public class Line extends Shape {
 		
 	}
 	
-	public Line (point startPoint, point endPoint) {
+	public Line (Point startPoint, Point endPoint) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
 		
 	}
 	
-	public Line (point startPoint, point endPoint, boolean selected) {
+	public Line (Point startPoint, Point endPoint, boolean selected) {
 		this(startPoint, endPoint);
 		setSelected(selected);
 	}
@@ -31,16 +31,16 @@ public class Line extends Shape {
 	
 	
 	//Metode pristupa
-	public point getStartPoint() {
+	public Point getStartPoint() {
 		return startPoint;
 		
 	}
 	
-	public void setStartPoint(point startPoint) {
+	public void setStartPoint(Point startPoint) {
 		this.startPoint = startPoint;
 	}
 	
-	public point getEndPoint() {
+	public Point getEndPoint() {
 		return endPoint;
 	}
 	
@@ -73,6 +73,10 @@ public class Line extends Shape {
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
 	}
 
-	
+	public int compareTo(Object obj) { //ovo uradimo za sve klase
+		if (obj instanceof Line) {
+			return (int) this.lenght() - ((Line) obj).lenght());
+		}
+	}
 
 }

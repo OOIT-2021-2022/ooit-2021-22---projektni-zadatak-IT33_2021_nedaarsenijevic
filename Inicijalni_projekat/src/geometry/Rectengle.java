@@ -30,7 +30,7 @@ public class Rectengle extends Shape {
 	}
 	
 	public boolean contains(int x, int y) {
-		return (upperLeft.getX() <x && upper.Left.getX() + width > x && upper.Left.getY() > y );
+		return (upperLeft.getX() <x && upperLeft.getX() + width > x && upperLeft.getY() > y );
 	}
 	
 	public boolean contains(Point p) {
@@ -49,7 +49,7 @@ public class Rectengle extends Shape {
 	}
 	
 	//Metode pristupa
-	public point getUpperLeft() {
+	public Point getUpperLeft() {
 		return upperLeft;
 	}
 	 // public void setUpperLeft(point upperLeft) {

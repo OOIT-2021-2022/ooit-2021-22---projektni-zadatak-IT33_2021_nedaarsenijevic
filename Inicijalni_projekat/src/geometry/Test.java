@@ -1,10 +1,10 @@
 package geometry;
 
-public class test {
+public class Test {
 
 	public static void main(String[] args) {
 
-		point p= new point (); //poziv konstruktora bez parametra
+		Point p= new Point (); //poziv konstruktora bez parametra
 		p.setX(6);
 		p.setY(5);
 		p.setSelected(true);
@@ -16,7 +16,7 @@ public class test {
 		
 		Line l1 = new Line();
 		Rectengle r1=new Rectengle();
-		point p1= new point();
+		Point p1= new Point();
 		p1.setX(1);
 		p1.setY(1);
 		
@@ -38,8 +38,8 @@ public class test {
 		
 		
 		
-		point p2 = new point (50, 100);
-		Line l2 = new Line (p2, new point (400,500));
+		Point p2 = new Point (50, 100);
+		Line l2 = new Line (p2, new Point (400,500));
 		Rectengle r2 = new Rectengle (p1, 50, 80);
 		
 		System.out.println(p2);
@@ -53,13 +53,31 @@ public class test {
 		p1.setY(100);
 		System.out.println(p2.equals(p1)); //sada dobijamo true jer imaju iste koordinate
 		
-		System.out.println(p2 instanceof point); //true
+		System.out.println(p2 instanceof Point); //true
 		//System.out.println(p2 instanceof Rectengle); //false
 		System.out.println(p2 instanceof Object); //sve je instanca klase object
 		
+		//Sedme vezbe
+		System.out.println("vezbe 7");
+		System.out.println(p1);
+		p1.moveBy(5, 3);
+		System.out.println(p1);
+		p1.moveTo(5, 3);
+		System.out.println(p1);
+		//napisati ostatak//
 		
-	}
+		int [] numbers = { 5, 4, 3, 2, 1 };
+		System.out.println("Nesortiran niz");
+		
+		for(int i=0; i < numbers.length ; i++)  { 
+			System.out.println(numbers[i]);
+		}
+		
+		Arrays.sort(numbers); //sortiranje niza
+		
+		
 	
+		}
 }
 //OVERLOADING I OVERRIDE (nasledjivanje)
 //NASLEDJIVANJE KLASE EXTENDS JE KLJUCNA REC!!
@@ -69,3 +87,6 @@ public class test {
 //apstraktne metode su metode koje nemaju implementaciju vec imamo samo njen potpis - za ispit
 //apstraktne metode nemaju telo {}
 //apstraktne klase ne mogu biti istancirane ali imaju konstruktore kako bi inicijalizovale vrednosti izvedenih klasa
+//KOLEKCIJE , nizovi
+//definisanu duzinu ne mozemo da promenimo
+//
