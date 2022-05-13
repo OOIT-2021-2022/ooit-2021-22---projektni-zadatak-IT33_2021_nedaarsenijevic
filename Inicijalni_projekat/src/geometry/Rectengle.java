@@ -100,7 +100,7 @@ public class Rectengle extends Shape {
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
+		
 		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
 		
 	}
