@@ -5,7 +5,7 @@ import java.awt.Point;
 
 public class Rectengle extends Shape {
 	
-	private point upperLeft;
+	private Point upperLeft;
 	private int width;
 	private int height;
 
@@ -16,15 +16,18 @@ public class Rectengle extends Shape {
 		
 	}
 	
-
-	
-	public Rectengle (point upperLeft, int width, int height) {
-		this.upperLeft = upperLeft;
-		this.width = width;
+	public Rectengle(int width, int height) {
 		this.height = height;
+		this.width = width;
 	}
 	
-	public Rectengle (point upperLeft, int width, int height, boolean selected) {
+	public Rectengle (Point upperLeft, int width, int height) {
+		this.upperLeft = upperLeft;
+		this.height = height;
+		this.width = width;
+	}
+	
+	public Rectengle (Point upperLeft, int width, int height, boolean selected) {
 		this(upperLeft, width, height );
 		setSelected(selected);
 	}
@@ -35,7 +38,7 @@ public class Rectengle extends Shape {
 	
 	public boolean contains(Point p) {
 		return (upperLeft.getX() < p.getX() && upperLeft.getX() + width > p.getX()
-				&& upperLeft.getY < p.getY() && upperLeft.getY() + height > p.getY());
+				&& upperLeft.getY() < p.getY() && upperLeft.getY() + height > p.getY());
 	}
 	
 	//Povrsina pravougaonika
@@ -52,10 +55,10 @@ public class Rectengle extends Shape {
 	public Point getUpperLeft() {
 		return upperLeft;
 	}
-	 // public void setUpperLeft(point upperLeft) {
-		//this.upperLeft = upper.Left;
-		
-	//}
+	
+	public void setUpperLeft(Point upperLeft) {
+		this.upperLeft = upperLeft;
+	}
 	
 	public int getWidth() {
 		return width;
@@ -73,6 +76,18 @@ public class Rectengle extends Shape {
 		this.height=height;
 	}
 	
+	public boolean equals(Object obj) {
+		if (obj instanceof Rectengle) {
+			Rectengle pomocni = (Rectengle) obj;
+			if (this.upperLeft.equals(pomocni.getUpperLeft()) && this.width == pomocni.width && this.height == pomocni.height) {
+				return true;
+			} else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
 	
 	
 	public String toString () {
@@ -85,32 +100,25 @@ public class Rectengle extends Shape {
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
+		
 		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
 		
+		
+		if(isSlected()) {
+			g.setColor(Color.BLUE);
+			g.drawRect(upperLeft.getX() - 2, upperLeft.getY()-2, 4, 4);
+			g.drawRect(upperLeft.getX() + width - 2, upperLeft.getY()-2, 4, 4);
+			g.drawRect(upperLeft.getX() - 2, upperLeft.getY() + height -2, 4, 4);
+			g.drawRect(upperLeft.getX()+ width - 2, upperLeft.getY() + height -2, 4, 4);
+		}
 	}
 	
-	//public boolean equals(Object obj) { ovo zavrsiti
-		//if (obj instanceof Rectengle) {
-			//Rectengle pomocna = (Rectegnle) obj;
-			//if (this.upperLeft.equals(pomocna.upperLeft()) && this.width == pomocna.width && this.height == pomocna.height) { //ovde smo uporedili tacke
-				//return true;
-			//} else {
-				//return false;
-			//}
-			//}
-	//}
 	
 
 }
 
 
-//FINAL / za isppit /
-// 4 zadatak za domaci
-//kako postaviti na github
 
-//zavrsiti contains za sve klase
-//2zadatak overloading
 
 
 

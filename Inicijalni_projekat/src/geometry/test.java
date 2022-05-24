@@ -1,6 +1,6 @@
 package geometry;
 
-public class Test {
+public class test {
 
 	public static void main(String[] args) {
 
@@ -57,27 +57,9 @@ public class Test {
 		//System.out.println(p2 instanceof Rectengle); //false
 		System.out.println(p2 instanceof Object); //sve je instanca klase object
 		
-		//Sedme vezbe
-		System.out.println("vezbe 7");
-		System.out.println(p1);
-		p1.moveBy(5, 3);
-		System.out.println(p1);
-		p1.moveTo(5, 3);
-		System.out.println(p1);
-		//napisati ostatak//
 		
-		int [] numbers = { 5, 4, 3, 2, 1 };
-		System.out.println("Nesortiran niz");
-		
-		for(int i=0; i < numbers.length ; i++)  { 
-			System.out.println(numbers[i]);
-		}
-		
-		Arrays.sort(numbers); //sortiranje niza
-		
-		
+	}
 	
-		}
 }
 //OVERLOADING I OVERRIDE (nasledjivanje)
 //NASLEDJIVANJE KLASE EXTENDS JE KLJUCNA REC!!
@@ -87,6 +69,3 @@ public class Test {
 //apstraktne metode su metode koje nemaju implementaciju vec imamo samo njen potpis - za ispit
 //apstraktne metode nemaju telo {}
 //apstraktne klase ne mogu biti istancirane ali imaju konstruktore kako bi inicijalizovale vrednosti izvedenih klasa
-//KOLEKCIJE , nizovi
-//definisanu duzinu ne mozemo da promenimo
-//

@@ -4,6 +4,10 @@ public abstract class Line extends Shape {
 	
 	private Point startPoint;
 	private Point endPoint;
+<<<<<<< HEAD
+=======
+	private boolean selected;
+>>>>>>> branch 'master' of https://github.com/OOIT-2021-2022/ooit-2021-22---projektni-zadatak-IT33_2021_nedaarsenijevic.git
 	
 	
 	
@@ -21,13 +25,21 @@ public abstract class Line extends Shape {
 	
 	public Line (Point startPoint, Point endPoint, boolean selected) {
 		this(startPoint, endPoint);
+		this.selected = selected;
 		setSelected(selected);
 	}
 	
 	
 	
 	//Metoda za izracunavanje duzine linije
-	//public double length() { zakomentarisano je jer treba da se zavrsi do kraja
+	
+	public double length() {
+		return startPoint.distance(endPoint.getX(), endPoint.getY());
+	}
+	
+	public boolean contains(int x, int y) {
+		return startPoint.distance(x, y) + endPoint.distance(x, y) - lenght() <= 2;
+	}
 	
 	
 	//Metode pristupa
@@ -44,10 +56,17 @@ public abstract class Line extends Shape {
 		return endPoint;
 	}
 	
-	public void setEndPoint(point endPoint) {
+	public void setEndPoint(Point endPoint) {
 		this.endPoint = endPoint;
 	}
 	
+	public boolean isSelected() {
+		return selected;
+	}
+	
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
 	
 	
 	public boolean equals(Object obj) {
@@ -69,8 +88,16 @@ public abstract class Line extends Shape {
 		
 	}
 	
-	public void draw(Graphich g) {
+	@Override
+	public void draw(Graphics g) {
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
+		
+		if (isSelected()) {
+			g.setColor(Color.BLUE);
+			g.drawRect(startPoint.getX()-2, startPoint.getY()-2, 4, 4);
+			g.drawRect(endPoint.getX()-2, endPoint.getY()-2, 4, 4);
+		}
+
 	}
 
 	public int compareTo(Object obj) { //ovo uradimo za sve klase

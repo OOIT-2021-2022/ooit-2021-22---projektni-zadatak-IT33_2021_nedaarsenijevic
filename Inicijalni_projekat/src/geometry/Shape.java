@@ -12,6 +12,10 @@ public abstract class Shape implements Moveable, Comparable { //moramo oznaciti 
 	//Automatsko krekiranje get i set desni kli source i uvek na kraju dodati
 	//Isto tako i za konstruktore
 	
+    public Shape () {
+		
+	}
+	
 	public boolean isSelected() {
 		return selected;
 	}
@@ -26,9 +30,7 @@ public abstract class Shape implements Moveable, Comparable { //moramo oznaciti 
 		this.selected = selected;
 	}
 	
-	public Shape () {
-		
-	}
+	
 	
 	
 	

@@ -5,13 +5,12 @@ import java.awt.Point;
 
 public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz klase circle
 	
-	
-	
 	private int innerRadius;
 	
 	public Donut ( ) {
 		
 	}
+	
 	
 	public Donut (Point center, int radius, int innerRadius) {
 		super(center, radius); //koristimo umesto set da ne gomilamo kod
@@ -28,25 +27,23 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 	
 	//REDEFINISANJE
 	public double area() { //od povrsine velikog kruga smo oduzeli povrsinu malog kruga kako bismo dobili prsten i njegovu povrsinu
-		return supper.area() - innerRadius * innerRadius * Math.PI; 
+		return super.area() - innerRadius * innerRadius * Math.PI; 
 	}
 	
 	public boolean contains(int x, int y) {
 		return (super.contains(x, y) && getCenter().distance(x, y) >= innerRadius);
 	}
 	
+	@Override
 	public boolean contains(Point p) {
-		return super.contains(p) && getCenter()distance(p.getX(), p.getY() >= innerRadius);
+		return super.contains(p) && getCenter().distance(p.getX(), p.getY()) >= innerRadius;
 	}
 	
-	public String toString [] {
-		return super.toString() + " , innerRadius " + " " ;
-	}
 	
 	public boolean equals(Object obj) {
 		if(obj instanceof Donut) {
 			Donut pomocni = (Donut) obj;
-			if (pomocni.getCenter().equals(get.Center()) && 
+			if (pomocni.getCenter().equals(getCenter()) && 
 				pomocni.getRadius() == getRadius() &&
 				pomocni.innerRadius == innerRadius)
 				return true;
@@ -54,6 +51,7 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 		return false;
 	}
 	
+	//Metode pristupa
 	public void  setInnerRadius(int innerRadius ) {
 		this.innerRadius = innerRadius;
 	}
@@ -63,9 +61,17 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 	}
 	
 	public void draw(Graphics g) {
-		super.(draw); //ovo iscrta spoljasnji krug
+		super.draw(g); //spoljasnji krug
 		g.drawOval(getCenter().getX() - innerRadius, getCenter().getY() - innerRadius, innerRadius*2, innerRadius*2);
+		//unutrasnji krug
 		
+		if (isSlected()) {
+			g.setColor(Color.BLUE);
+			g.drawRect(getcenter.getX() - innerRadius - 2, center.getY() - 2, 4, 4);
+			g.drawRect(getcenter.getX() + innerRadius, center.getY() - 2, 4, 4);
+			g.drawRect(getcenter.getX() - 2, center.getY() - innerRadius - 2, 4, 4);
+			g.drawRect(getcenter.getX() - 2, center.getY() - innerRadius - 2, 4, 4);
+		}
 	}
 	//1.REDEFINISATI OVERRIDE METODE IZ KLASE CIRCLE
 
