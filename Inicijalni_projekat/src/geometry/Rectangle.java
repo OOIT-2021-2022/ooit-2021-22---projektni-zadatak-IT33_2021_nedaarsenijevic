@@ -1,9 +1,11 @@
 package geometry;
 
+
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-public class Rectengle extends Shape {
+public class Rectangle extends Shape {
 	
 	private Point upperLeft;
 	private int width;
@@ -12,11 +14,11 @@ public class Rectengle extends Shape {
 	
 	//Konstruktori
 	
-	public Rectengle () {
+	public Rectangle () {
 		
 	}
 	
-	public Rectengle(int width, int height) {
+	public Rectangle(int width, int height) {
 		this.height = height;
 		this.width = width;
 	}
@@ -95,26 +97,38 @@ public class Rectengle extends Shape {
 		return "upper Left point: " + upperLeft + " ,width " + width + ",height" + height;
 		
 	}
-
-
-
-	@Override
+	
 	public void draw(Graphics g) {
-		
+		g.setColor(Color.BLACK);
 		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
 		
-		
-		if(isSlected()) {
+		if(isSelected()) {
 			g.setColor(Color.BLUE);
-			g.drawRect(upperLeft.getX() - 2, upperLeft.getY()-2, 4, 4);
-			g.drawRect(upperLeft.getX() + width - 2, upperLeft.getY()-2, 4, 4);
-			g.drawRect(upperLeft.getX() - 2, upperLeft.getY() + height -2, 4, 4);
-			g.drawRect(upperLeft.getX()+ width - 2, upperLeft.getY() + height -2, 4, 4);
+			g.drawRect(upperLeft.getX()-2, upperLeft.getY()-2, 4, 4);
+			g.drawRect(upperLeft.getX()+ width -2, upperLeft.getY()-2, 4, 4);
+			g.drawRect(upperLeft.getX()-2, upperLeft.getY()+height-2, 4, 4);
+			g.drawRect(upperLeft.getX()+width-2, upperLeft.getY()+height-2, 4, 4);
 		}
+		
+	}
+	
+	public void moveTo(int x, int y) {
+		upperLeft.moveTo(x, y);
 	}
 	
 	
-
+	public void moveBy(int byX, int byY) {
+		upperLeft.moveBy(byX, byY);
+	}
+	
+	
+	public int compareTo(Object o) {
+		if (o instanceof Rectangle) {
+			return (int) (this.area() - ((Rectangle) o).area());
+		}
+		return 0;
+	}
+	
 }
 
 
