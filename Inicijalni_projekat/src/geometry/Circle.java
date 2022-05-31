@@ -19,7 +19,7 @@ public class Circle extends Shape {
 	
 	public Circle (Point center, int radius, boolean selected) {
 		this(center,radius);
-		this.selected = selected;
+		//this.selected = selected;
 		setSelected(selected);
 		
 	}
@@ -96,17 +96,17 @@ public class Circle extends Shape {
 		}
 	}
 
-	@Override
+	
 	public void moveTo(int x, int y) {
 		center.moveTo(x, y);
 	}
 
-	@Override
+	
 	public void moveBy(int byX, int byY) {
 		center.moveBy(byX, byY);
 	}
 
-	@Override
+	
 	public int compareTo(Object obj) {
 		if(obj instanceof Circle) {
 			return  (int) (this.area() - ((Circle) obj).area());

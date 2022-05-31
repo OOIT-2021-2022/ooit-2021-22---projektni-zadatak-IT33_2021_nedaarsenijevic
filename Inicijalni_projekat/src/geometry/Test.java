@@ -15,7 +15,7 @@ public class Test {
 		System.out.println("Distance between points is: " + result);
 		
 		Line l1 = new Line();
-		Rectengle r1=new Rectengle();
+		Rectangle r1=new Rectangle();
 		Point p1= new Point();
 		p1.setX(1);
 		p1.setY(1);
@@ -40,7 +40,7 @@ public class Test {
 		
 		Point p2 = new Point (50, 100);
 		Line l2 = new Line (p2, new Point (400,500));
-		Rectengle r2 = new Rectengle (p1, 50, 80);
+		Rectangle r2 = new Rectangle (p1, 50, 80);
 		
 		System.out.println(p2);
 		System.out.println(p1);

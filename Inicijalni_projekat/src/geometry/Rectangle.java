@@ -3,7 +3,7 @@ package geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Point;
+
 
 public class Rectangle extends Shape {
 	
@@ -23,13 +23,13 @@ public class Rectangle extends Shape {
 		this.width = width;
 	}
 	
-	public Rectengle (Point upperLeft, int width, int height) {
+	public Rectangle (Point upperLeft, int width, int height) {
 		this.upperLeft = upperLeft;
 		this.height = height;
 		this.width = width;
 	}
 	
-	public Rectengle (Point upperLeft, int width, int height, boolean selected) {
+	public Rectangle (Point upperLeft, int width, int height, boolean selected) {
 		this(upperLeft, width, height );
 		setSelected(selected);
 	}
@@ -79,8 +79,8 @@ public class Rectangle extends Shape {
 	}
 	
 	public boolean equals(Object obj) {
-		if (obj instanceof Rectengle) {
-			Rectengle pomocni = (Rectengle) obj;
+		if (obj instanceof Rectangle) {
+			Rectangle pomocni = (Rectangle) obj;
 			if (this.upperLeft.equals(pomocni.getUpperLeft()) && this.width == pomocni.width && this.height == pomocni.height) {
 				return true;
 			} else {
