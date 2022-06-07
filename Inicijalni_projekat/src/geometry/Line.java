@@ -3,7 +3,7 @@ package geometry;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public abstract class Line extends Shape {
+public  class Line extends Shape {
 	
 	private Point startPoint;
 	private Point endPoint;

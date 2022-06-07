@@ -4,7 +4,7 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		Point p= new Point (); //poziv konstruktora bez parametra
+		Point p= new Point(); //poziv konstruktora bez parametra
 		p.setX(6);
 		p.setY(5);
 		p.setSelected(true);

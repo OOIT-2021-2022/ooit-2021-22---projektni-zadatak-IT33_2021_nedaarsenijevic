@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class Drawing extends JPanel {
 public static void main(String[] args) {
-		JFrame frame = newJFrame("Drawing");
+		JFrame frame = new JFrame("Drawing");
 		frame.setSize(800, 600);
 		Drawing drawing = new Drawing();
 		frame.getContentPane().add(drawing);

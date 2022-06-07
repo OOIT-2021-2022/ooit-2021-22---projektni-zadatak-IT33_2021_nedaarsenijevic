@@ -28,6 +28,11 @@ import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.FlowLayout;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class FrmTest extends JFrame {
 
@@ -37,6 +42,7 @@ public class FrmTest extends JFrame {
 	private JLabel lblCrvena;
 	private JLabel lblPlava;
 	private JLabel lblZuta;
+	private JTextField txtDodajBoju;
 	/**
 	 * Launch the application.
 	 */
@@ -72,7 +78,7 @@ public class FrmTest extends JFrame {
 		GridBagLayout gbl_pnlCentar = new GridBagLayout();
 		gbl_pnlCentar.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_pnlCentar.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
-		gbl_pnlCentar.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_pnlCentar.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_pnlCentar.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		pnlCentar.setLayout(gbl_pnlCentar);
 		
@@ -87,11 +93,38 @@ public class FrmTest extends JFrame {
 				lblZuta.setForeground(Color.black);
 			}
 		});
+		
+		JLabel lblDodajBoju = new JLabel("Dodaj Boju");
+		GridBagConstraints gbc_lblDodajBoju = new GridBagConstraints();
+		gbc_lblDodajBoju.anchor = GridBagConstraints.SOUTHEAST;
+		gbc_lblDodajBoju.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDodajBoju.gridx = 0;
+		gbc_lblDodajBoju.gridy = 0;
+		pnlCentar.add(lblDodajBoju, gbc_lblDodajBoju);
+		
+		txtDodajBoju = new JTextField();
+		txtDodajBoju.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					dlm.addElement(txtDodajBoju.getText());
+					txtDodajBoju.setText("");
+				}
+			}
+		});
+		txtDodajBoju.setText("");
+		GridBagConstraints gbc_txtDodajBoju = new GridBagConstraints();
+		gbc_txtDodajBoju.insets = new Insets(0, 0, 5, 5);
+		gbc_txtDodajBoju.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtDodajBoju.gridx = 1;
+		gbc_txtDodajBoju.gridy = 0;
+		pnlCentar.add(txtDodajBoju, gbc_txtDodajBoju);
+		txtDodajBoju.setColumns(10);
 		tglbtnCrvena.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		GridBagConstraints gbc_tglbtnCrvena = new GridBagConstraints();
 		gbc_tglbtnCrvena.insets = new Insets(0, 0, 5, 5);
 		gbc_tglbtnCrvena.gridx = 0;
-		gbc_tglbtnCrvena.gridy = 2;
+		gbc_tglbtnCrvena.gridy = 1;
 		pnlCentar.add(tglbtnCrvena, gbc_tglbtnCrvena);
 		
 		
@@ -100,7 +133,7 @@ public class FrmTest extends JFrame {
 		GridBagConstraints gbc_lblCrvena = new GridBagConstraints();
 		gbc_lblCrvena.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCrvena.gridx = 1;
-		gbc_lblCrvena.gridy = 2;
+		gbc_lblCrvena.gridy = 1;
 		pnlCentar.add(lblCrvena, gbc_lblCrvena);
 		
 		
@@ -118,7 +151,7 @@ public class FrmTest extends JFrame {
 		GridBagConstraints gbc_tglbtnPlava = new GridBagConstraints();
 		gbc_tglbtnPlava.insets = new Insets(0, 0, 5, 5);
 		gbc_tglbtnPlava.gridx = 0;
-		gbc_tglbtnPlava.gridy = 3;
+		gbc_tglbtnPlava.gridy = 2;
 		pnlCentar.add(tglbtnPlava, gbc_tglbtnPlava);
 		btnGroup.add(tglbtnPlava);
 		
@@ -126,14 +159,13 @@ public class FrmTest extends JFrame {
 		GridBagConstraints gbc_lblPlava = new GridBagConstraints();
 		gbc_lblPlava.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPlava.gridx = 1;
-		gbc_lblPlava.gridy = 3;
+		gbc_lblPlava.gridy = 2;
 		pnlCentar.add(lblPlava, gbc_lblPlava);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridwidth = 4;
 		gbc_scrollPane.gridheight = 3;
-		gbc_scrollPane.insets = new Insets(0, 0, 5, 0);
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridx = 6;
 		gbc_scrollPane.gridy = 2;
@@ -156,21 +188,61 @@ public class FrmTest extends JFrame {
 		});
 		tglbtnZuta.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		GridBagConstraints gbc_tglbtnZuta = new GridBagConstraints();
-		gbc_tglbtnZuta.insets = new Insets(0, 0, 0, 5);
+		gbc_tglbtnZuta.insets = new Insets(0, 0, 5, 5);
 		gbc_tglbtnZuta.gridx = 0;
-		gbc_tglbtnZuta.gridy = 4;
+		gbc_tglbtnZuta.gridy = 3;
 		pnlCentar.add(tglbtnZuta, gbc_tglbtnZuta);
 		btnGroup.add(tglbtnZuta);
 		
 		lblZuta = new JLabel("Zuta");
 		GridBagConstraints gbc_lblZuta = new GridBagConstraints();
-		gbc_lblZuta.insets = new Insets(0, 0, 0, 5);
+		gbc_lblZuta.insets = new Insets(0, 0, 5, 5);
 		gbc_lblZuta.gridx = 1;
-		gbc_lblZuta.gridy = 4;
+		gbc_lblZuta.gridy = 3;
 		pnlCentar.add(lblZuta, gbc_lblZuta);
+		
+		JLabel lblDodatneBoje = new JLabel("Dodatne boje");
+		GridBagConstraints gbc_lblDodatneBoje = new GridBagConstraints();
+		gbc_lblDodatneBoje.anchor = GridBagConstraints.EAST;
+		gbc_lblDodatneBoje.insets = new Insets(0, 0, 0, 5);
+		gbc_lblDodatneBoje.gridx = 0;
+		gbc_lblDodatneBoje.gridy = 4;
+		pnlCentar.add(lblDodatneBoje, gbc_lblDodatneBoje);
+		
+		JComboBox <String> cmbDodatneBoje = new JComboBox();
+		cmbDodatneBoje.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dlm.addElement(cmbDodatneBoje.getSelectedItem().toString());
+				
+				switch(cmbDodatneBoje.getSelectedItem().toString()) {
+				case "Zelena" :
+					lblDodatneBoje.setForeground(Color.GREEN);
+					break;
+				case "Narandzasta":
+					lblDodatneBoje.setForeground(Color.ORANGE);
+					break;
+				case "Ljubicasta" :
+					lblDodatneBoje.setForeground(Color.MAGENTA);
+					break;
+				default:
+				lblDodatneBoje.setForeground(Color.BLACK);
+				break;	
+				}
+			}
+		});
+		cmbDodatneBoje.setModel(new DefaultComboBoxModel <String>(new String[] {"Zelena", "Narandzasta", "Ljubicasta"}));
+		GridBagConstraints gbc_cmbDodatneBoje = new GridBagConstraints();
+		gbc_cmbDodatneBoje.insets = new Insets(0, 0, 0, 5);
+		gbc_cmbDodatneBoje.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cmbDodatneBoje.gridx = 1;
+		gbc_cmbDodatneBoje.gridy = 4;
+		pnlCentar.add(cmbDodatneBoje, gbc_cmbDodatneBoje);
 		
 		JButton btnispis = new JButton("Klikni me");
 		contentPane.add(btnispis);
+		
+		JButton btnDodajBoju = new JButton("Dodaj Boju");
+		contentPane.add(btnDodajBoju);
 		btnispis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Antistres Dugme", "Poruka", JOptionPane.INFORMATION_MESSAGE);
