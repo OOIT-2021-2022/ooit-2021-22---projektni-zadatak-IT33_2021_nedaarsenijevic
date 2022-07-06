@@ -17,6 +17,7 @@ public class JDialogCircle extends JDialog {
 	
 	private Point center;
 	private int radius;
+	private Circle cirlce = null;
 
 	/**
 	 * Launch the application.
