@@ -23,20 +23,24 @@ public class Rectangle extends Shape {
 		this.width = width;
 	}
 	
-	public Rectengle (Point upperLeft, int width, int height) {
+	public Rectangle (Point upperLeft, int width, int height) {
 		this.upperLeft = upperLeft;
 		this.height = height;
 		this.width = width;
 	}
 	
-	public Rectengle (Point upperLeft, int width, int height, boolean selected) {
+	public boolean contains(int x, int y) {
+		return (upperLeft.getX() <x && upperLeft.getX() + width > x && 
+		 upperLeft.getY() > y ); }
+	
+	public Rectangle (Point upperLeft, int width, int height, boolean selected) {
 		this(upperLeft, width, height );
 		setSelected(selected);
 	}
 	
-	public boolean contains(int x, int y) {
-		return (upperLeft.getX() <x && upperLeft.getX() + width > x && upperLeft.getY() > y );
-	}
+	//public boolean contains(int x, int y) {
+		 //return (upperLeft.getX() <x && upperLeft.getX() + width > x && upperLeft.getY() > y );
+	//}
 	
 	public boolean contains(Point p) {
 		return (upperLeft.getX() < p.getX() && upperLeft.getX() + width > p.getX()
@@ -79,8 +83,8 @@ public class Rectangle extends Shape {
 	}
 	
 	public boolean equals(Object obj) {
-		if (obj instanceof Rectengle) {
-			Rectengle pomocni = (Rectengle) obj;
+		if (obj instanceof Rectangle) {
+			Rectangle pomocni = (Rectangle) obj;
 			if (this.upperLeft.equals(pomocni.getUpperLeft()) && this.width == pomocni.width && this.height == pomocni.height) {
 				return true;
 			} else {
@@ -100,14 +104,14 @@ public class Rectangle extends Shape {
 	
 	public void draw(Graphics g) {
 		g.setColor(Color.BLACK);
-		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
+		g.Rect(upperLeft.getX(), upperLeft.getY(), width, height);
 		
 		if(isSelected()) {
 			g.setColor(Color.BLUE);
-			g.drawRect(upperLeft.getX()-2, upperLeft.getY()-2, 4, 4);
-			g.drawRect(upperLeft.getX()+ width -2, upperLeft.getY()-2, 4, 4);
-			g.drawRect(upperLeft.getX()-2, upperLeft.getY()+height-2, 4, 4);
-			g.drawRect(upperLeft.getX()+width-2, upperLeft.getY()+height-2, 4, 4);
+			g.Rect(upperLeft.getX()-2, upperLeft.getY()-2, 4, 4);
+			g.Rect(upperLeft.getX()+ width -2, upperLeft.getY()-2, 4, 4);
+			g.Rect(upperLeft.getX()-2, upperLeft.getY()+height-2, 4, 4);
+			g.Rect(upperLeft.getX()+width-2, upperLeft.getY()+height-2, 4, 4);
 		}
 		
 	}

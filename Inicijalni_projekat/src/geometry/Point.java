@@ -1,8 +1,8 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
-<<<<<<< HEAD
 public abstract class Point extends Shape {
 
 	private int x;
@@ -35,10 +35,6 @@ public abstract class Point extends Shape {
 	}
 	
 	
-	
-	
-	
-	
 	//metode pristupa
 	//GET I SET METODE 
 	//uvek public
@@ -57,25 +53,25 @@ public abstract class Point extends Shape {
 		this.y = y;
 	}
 	
-	
-	
-	// public String toString() {
-		
-		 // return "(" + x + "," + " + y + ")"
-	 //instanceof je operator koji nam omogucava proveru tipa kod objekta, tj da li je istanca neke klase
-	public boolean equals (Object obj) { //proveravamo da li je obj instanca ove klase point
-		if (obj instanceof Point) { //ukoliko jeste kastujemo i pretvaramo u point
-			Point pomocna = (Point) obj; //u zagradi je tip u koji zelimo da kastujemo a pored sta
-			
-			if(this.x == pomocna.getX() && this.y == pomocna.getY()) { //Poredi po vrednosti jer su oba int
+	public boolean equals(Object obj) {
+		if (obj instanceof Point) {
+			Point pomocna = (Point) obj;
+
+			if (this.x == pomocna.getX() && this.y == pomocna.getY()) {
 				return true;
-				
 			} else {
 				return false;
 			}
 		} else {
 			return false;
 		}
+
+	}
+
+	public String toString() {
+
+		return "(" + x + "," + y + ")";
+
 	}
 	@Override
 	public boolean contains(int x, int y) {
@@ -110,7 +106,7 @@ public abstract class Point extends Shape {
 		}
 		return 0;
 	}
-=======
+
 public class Point extends Shape {
 
 	private int x;
@@ -155,6 +151,10 @@ public class Point extends Shape {
 		 * if (this.distance(x, y) <= 2) return true; else return false;
 		 */
 	}
+	 
+	public boolean contains(int x, int y) {
+		return (upperLeft.getX() <x && upperLeft.getX() + width > x && 
+		 upperLeft.getY() > y ); }
 	
 	//metode pristupa
 	//GET I SET METODE 
@@ -207,8 +207,5 @@ public class Point extends Shape {
 		g.drawLine(x-2, y, x+2, y); //horizontalna linija
 		g.drawLine(x, y-2, x, y+2); //vertikalna linija
 	}
-		
->>>>>>> branch 'master' of https://github.com/OOIT-2021-2022/ooit-2021-22---projektni-zadatak-IT33_2021_nedaarsenijevic.git
-		
-	}
+}
 

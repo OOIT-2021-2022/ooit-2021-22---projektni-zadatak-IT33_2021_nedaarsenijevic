@@ -2,18 +2,21 @@ package geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Drawing extends JPanel {
+	
 public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		JFrame frame = newJFrame("Drawing");
-		frame.setSize(800, 600);
-		Drawing drawing = new Drawing();
-		frame.getContentPane().add(drawing);
-		frame.setVisible(true);
+	JFrame frame = new JFrame("Drawing");
+	frame.setSize(800, 600);
+	Drawing drawing  = new Drawing();
+	frame.getContentPane().add(drawing);
+	frame.setVisible(true);
 	}
 	
 	public void paint(Graphics g) {

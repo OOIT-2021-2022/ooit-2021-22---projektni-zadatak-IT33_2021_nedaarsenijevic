@@ -1,15 +1,13 @@
 package geometry;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 public abstract class Line extends Shape {
 	
 	private Point startPoint;
 	private Point endPoint;
-<<<<<<< HEAD
-=======
 	private boolean selected;
->>>>>>> branch 'master' of https://github.com/OOIT-2021-2022/ooit-2021-22---projektni-zadatak-IT33_2021_nedaarsenijevic.git
-	
-	
 	
 	//Konstruktori
 	
@@ -38,7 +36,7 @@ public abstract class Line extends Shape {
 	}
 	
 	public boolean contains(int x, int y) {
-		return startPoint.distance(x, y) + endPoint.distance(x, y) - lenght() <= 2;
+		return startPoint.distance(x, y) + endPoint.distance(x, y) - length() <= 2;
 	}
 	
 	
@@ -90,20 +88,31 @@ public abstract class Line extends Shape {
 	
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(Color.BLACK);
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
 		
-		if (isSelected()) {
+		if(isSelected()) {
 			g.setColor(Color.BLUE);
 			g.drawRect(startPoint.getX()-2, startPoint.getY()-2, 4, 4);
 			g.drawRect(endPoint.getX()-2, endPoint.getY()-2, 4, 4);
 		}
-
+		
+	}
+	
+	public void moveTo(int x, int y) {
+		
+	}
+	
+	public void moveBy(int byX, byY) {
+		startPoint.moveBy(byX, byY);
+		endPoint.moveBy(byX, byY);
 	}
 
+	
 	public int compareTo(Object obj) { //ovo uradimo za sve klase
 		if (obj instanceof Line) {
-			return (int) this.lenght() - ((Line) obj).lenght());
+			return (int) ((int) this.length() - ((Line) obj).length()));
 		}
+		return 0;
 	}
-
 }
