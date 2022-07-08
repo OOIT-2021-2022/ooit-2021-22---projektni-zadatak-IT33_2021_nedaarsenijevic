@@ -1,4 +1,5 @@
-package stack;
+package drawing;
+
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,10 +7,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import geometry.Circle;
-import geometry.Point;
 
-public class StackApplication extends JFrame {
+public class AppDrawing extends JFrame {
 
 	private JPanel contentPane;
 
@@ -20,7 +19,7 @@ public class StackApplication extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StackApplication frame = new StackApplication();
+					AppDrawing frame = new AppDrawing();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,7 +31,7 @@ public class StackApplication extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public StackApplication() {
+	public AppDrawing() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

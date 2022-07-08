@@ -1,6 +1,5 @@
-package stack;
+package drawing;
 
-import geometry.Circle;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -8,23 +7,17 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import geometry.Point;
 
-public class JDialogCircle extends JDialog {
+public class DlgCircle extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	
-	
-	private Point center;
-	private int radius;
-	private Circle cirlce = null;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			JDialogCircle dialog = new JDialogCircle();
+			DlgCircle dialog = new DlgCircle();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -35,7 +28,7 @@ public class JDialogCircle extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public JDialogCircle() {
+	public DlgCircle() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
