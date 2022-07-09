@@ -8,6 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import geometry.Circle;
 import geometry.Point;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 
 public class StackApplication extends JFrame {
 
@@ -33,6 +38,7 @@ public class StackApplication extends JFrame {
 	 * Create the frame.
 	 */
 	public StackApplication() {
+		setTitle("IT33-2021-NEDA-ARSENIJEVIC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
