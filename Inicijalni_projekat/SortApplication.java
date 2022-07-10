@@ -66,7 +66,7 @@ public class SortApplication extends JFrame {
 				CircleDialog circleDialog = new CircleDialog();
 				circleDialog.setVisible(true);
 				if(circleDialog.getCircle() != null) {
-					circles.add(circleDialog.getCircle()); //dodajemo na listu
+					circles.add(circleDialog.getCircle()); //dodajemo na listu/
 					circles.sort(null);
 					dlm.clear(); //hocemo da obrisemo sve elemente iz liste dlm kako bismo dodali one  iz circle
 					for( int i=0; i < circles.size(); i++) {
