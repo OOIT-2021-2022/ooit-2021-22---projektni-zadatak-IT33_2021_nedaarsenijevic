@@ -208,4 +208,5 @@ public class Point extends Shape {
 		g.drawLine(x, y-2, x, y+2); //vertikalna linija
 	}
 }
+}
 

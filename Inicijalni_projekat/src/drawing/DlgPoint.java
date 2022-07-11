@@ -25,6 +25,7 @@ import javax.swing.JColorChooser;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class DlgPoint extends JDialog {
 
@@ -67,6 +68,7 @@ public class DlgPoint extends JDialog {
 		contentPanel.setLayout(gbl_contentPanel);
 		{
 			JLabel lblDialogName = new JLabel("POINT");
+			lblDialogName.setForeground(UIManager.getColor("textHighlight"));
 			lblDialogName.setFont(new Font("Baskerville Old Face", Font.PLAIN, 22));
 			GridBagConstraints gbc_lblDialogName = new GridBagConstraints();
 			gbc_lblDialogName.gridwidth = 7;
@@ -85,6 +87,7 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			JLabel lblXcoordinate = new JLabel("X coordinate:");
+			lblXcoordinate.setForeground(Color.BLUE);
 			lblXcoordinate.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
 			GridBagConstraints gbc_lblXcoordinate = new GridBagConstraints();
 			gbc_lblXcoordinate.gridwidth = 2;
@@ -96,6 +99,7 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			textFieldX = new JTextField();
+			textFieldX.setForeground(Color.BLACK);
 			textFieldX.setFont(new Font("Bookman Old Style", Font.PLAIN, 11));
 			GridBagConstraints gbc_textFieldX = new GridBagConstraints();
 			gbc_textFieldX.gridwidth = 2;
@@ -108,6 +112,7 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			JLabel lblYCoordinate = new JLabel("Y coordinate:");
+			lblYCoordinate.setForeground(Color.BLUE);
 			lblYCoordinate.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
 			GridBagConstraints gbc_lblYCoordinate = new GridBagConstraints();
 			gbc_lblYCoordinate.gridwidth = 2;
@@ -131,6 +136,8 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			JButton btnColor = new JButton("Color");
+			btnColor.setBackground(Color.CYAN);
+			btnColor.setForeground(Color.BLUE);
 			btnColor.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
 			btnColor.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {

@@ -24,6 +24,7 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class DlgLine extends JDialog {
 
@@ -68,7 +69,8 @@ public class DlgLine extends JDialog {
 		contentPanel.setLayout(gbl_contentPanel);
 		{
 			JLabel lblDialogName = new JLabel("LINE");
-			lblDialogName.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+			lblDialogName.setForeground(Color.MAGENTA);
+			lblDialogName.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
 			GridBagConstraints gbc_lblDialogName = new GridBagConstraints();
 			gbc_lblDialogName.gridwidth = 2;
 			gbc_lblDialogName.insets = new Insets(0, 0, 5, 5);
@@ -77,8 +79,9 @@ public class DlgLine extends JDialog {
 			contentPanel.add(lblDialogName, gbc_lblDialogName);
 		}
 		{
-			JLabel lblStartPointCoordinates = new JLabel("Start point coordinates:");
-			lblStartPointCoordinates.setFont(new Font("Bookman Old Style", Font.PLAIN, 18));
+			JLabel lblStartPointCoordinates = new JLabel("Choose START point coordinates");
+			lblStartPointCoordinates.setForeground(Color.MAGENTA);
+			lblStartPointCoordinates.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
 			GridBagConstraints gbc_lblStartPointCoordinates = new GridBagConstraints();
 			gbc_lblStartPointCoordinates.gridwidth = 2;
 			gbc_lblStartPointCoordinates.insets = new Insets(0, 0, 5, 0);
@@ -88,7 +91,8 @@ public class DlgLine extends JDialog {
 		}
 		{
 			JLabel lblXCoordinate = new JLabel("X coordinate:");
-			lblXCoordinate.setFont(new Font("Bookman Old Style", Font.PLAIN, 18));
+			lblXCoordinate.setForeground(Color.PINK);
+			lblXCoordinate.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 			GridBagConstraints gbc_lblXCoordinate = new GridBagConstraints();
 			gbc_lblXCoordinate.anchor = GridBagConstraints.WEST;
 			gbc_lblXCoordinate.insets = new Insets(0, 0, 5, 5);
@@ -98,6 +102,7 @@ public class DlgLine extends JDialog {
 		}
 		{
 			textFieldX = new JTextField();
+			textFieldX.setBackground(UIManager.getColor("info"));
 			GridBagConstraints gbc_textFieldX = new GridBagConstraints();
 			gbc_textFieldX.insets = new Insets(0, 0, 5, 0);
 			gbc_textFieldX.fill = GridBagConstraints.HORIZONTAL;
@@ -108,7 +113,8 @@ public class DlgLine extends JDialog {
 		}
 		{
 			JLabel lblYCoordinate = new JLabel("Y coordinate:");
-			lblYCoordinate.setFont(new Font("Bookman Old Style", Font.PLAIN, 18));
+			lblYCoordinate.setForeground(Color.PINK);
+			lblYCoordinate.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 			GridBagConstraints gbc_lblYCoordinate = new GridBagConstraints();
 			gbc_lblYCoordinate.insets = new Insets(0, 0, 5, 5);
 			gbc_lblYCoordinate.anchor = GridBagConstraints.WEST;
@@ -118,6 +124,7 @@ public class DlgLine extends JDialog {
 		}
 		{
 			textFieldY = new JTextField();
+			textFieldY.setBackground(UIManager.getColor("info"));
 			GridBagConstraints gbc_textFieldY = new GridBagConstraints();
 			gbc_textFieldY.insets = new Insets(0, 0, 5, 0);
 			gbc_textFieldY.fill = GridBagConstraints.HORIZONTAL;
@@ -127,8 +134,9 @@ public class DlgLine extends JDialog {
 			textFieldY.setColumns(10);
 		}
 		{
-			JLabel lblEndPointCoordinates = new JLabel("End point coordinates:");
-			lblEndPointCoordinates.setFont(new Font("Bookman Old Style", Font.PLAIN, 18));
+			JLabel lblEndPointCoordinates = new JLabel("Choose END point coordinates");
+			lblEndPointCoordinates.setForeground(Color.MAGENTA);
+			lblEndPointCoordinates.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
 			GridBagConstraints gbc_lblEndPointCoordinates = new GridBagConstraints();
 			gbc_lblEndPointCoordinates.gridwidth = 2;
 			gbc_lblEndPointCoordinates.insets = new Insets(0, 0, 5, 0);
@@ -138,7 +146,8 @@ public class DlgLine extends JDialog {
 		}
 		{
 			JLabel lblXCoordinate = new JLabel("X coordinate:");
-			lblXCoordinate.setFont(new Font("Bookman Old Style", Font.PLAIN, 18));
+			lblXCoordinate.setForeground(Color.PINK);
+			lblXCoordinate.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 			GridBagConstraints gbc_lblXCoordinate = new GridBagConstraints();
 			gbc_lblXCoordinate.insets = new Insets(0, 0, 5, 5);
 			gbc_lblXCoordinate.anchor = GridBagConstraints.WEST;
@@ -148,6 +157,7 @@ public class DlgLine extends JDialog {
 		}
 		{
 			textFieldX2 = new JTextField();
+			textFieldX2.setBackground(UIManager.getColor("info"));
 			GridBagConstraints gbc_textFieldX2 = new GridBagConstraints();
 			gbc_textFieldX2.insets = new Insets(0, 0, 5, 0);
 			gbc_textFieldX2.fill = GridBagConstraints.HORIZONTAL;
@@ -158,7 +168,8 @@ public class DlgLine extends JDialog {
 		}
 		{
 			JLabel lblYKoordinata_1 = new JLabel("Y coordinate:");
-			lblYKoordinata_1.setFont(new Font("Bookman Old Style", Font.PLAIN, 18));
+			lblYKoordinata_1.setForeground(Color.PINK);
+			lblYKoordinata_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 			GridBagConstraints gbc_lblYKoordinata_1 = new GridBagConstraints();
 			gbc_lblYKoordinata_1.insets = new Insets(0, 0, 5, 5);
 			gbc_lblYKoordinata_1.anchor = GridBagConstraints.WEST;
@@ -168,6 +179,7 @@ public class DlgLine extends JDialog {
 		}
 		{
 			textFieldY2 = new JTextField();
+			textFieldY2.setBackground(UIManager.getColor("info"));
 			GridBagConstraints gbc_textFieldY2 = new GridBagConstraints();
 			gbc_textFieldY2.insets = new Insets(0, 0, 5, 0);
 			gbc_textFieldY2.fill = GridBagConstraints.HORIZONTAL;
