@@ -42,6 +42,10 @@ public class Rectangle extends Shape {
 		 //return (upperLeft.getX() <x && upperLeft.getX() + width > x && upperLeft.getY() > y );
 	//}
 	
+	public Rectangle(geometry.Point point, int width2, int height2, Color edgeColor, Color fillColor) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean contains(Point p) {
 		return (upperLeft.getX() < p.getX() && upperLeft.getX() + width > p.getX()
 				&& upperLeft.getY() < p.getY() && upperLeft.getY() + height > p.getY());
