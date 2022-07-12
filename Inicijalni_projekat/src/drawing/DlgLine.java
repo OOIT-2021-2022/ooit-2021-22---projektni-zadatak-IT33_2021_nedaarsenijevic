@@ -264,7 +264,7 @@ public class DlgLine extends JDialog {
 		}
 	}
 
-	//geting coordinates for those tho points and setting them in text field
+	//geting coordinates 
 	
 	public void setLine(Point startPoint, Point endPoint) {
 		textFieldX.setText("" + startPoint.getX());

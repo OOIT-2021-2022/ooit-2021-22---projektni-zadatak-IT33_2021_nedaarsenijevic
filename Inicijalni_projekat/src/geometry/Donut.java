@@ -97,6 +97,12 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 		return null;
 	}
 
+
+	public Color getFillColor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 
 //protective dozvoljava pristup u okviru istog paketa tako da je center moglo umesto private protected

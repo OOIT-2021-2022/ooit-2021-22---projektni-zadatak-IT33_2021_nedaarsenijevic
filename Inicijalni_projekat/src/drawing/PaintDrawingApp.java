@@ -92,6 +92,7 @@ public class PaintDrawingApp extends JFrame {
 		btngroupShape.add(tglbtnSelect);
 
 		JToggleButton tglbtnPoint = new JToggleButton("Point");
+		tglbtnPoint.setBackground(new Color(250, 235, 215));
 		tglbtnPoint.setForeground(new Color(255, 20, 147));
 		tglbtnPoint.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 16));
 		tglbtnPoint.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/full-stop.png")));
@@ -203,7 +204,7 @@ public class PaintDrawingApp extends JFrame {
 					}
 				}
 
-				// check for donut first because donut is also a circle
+				// prvo donut jer je takodje krug
 				else if (shape instanceof Donut) {
 					DlgDonut dlgDonut = new DlgDonut();
 					dlgDonut.setDonut((Donut) shape);
@@ -268,7 +269,7 @@ public class PaintDrawingApp extends JFrame {
 				}
 
 				if (tglbtnDonut.isSelected()) {
-					DlgDonut dlgDonut = new DlgDonut(); // a new instance of the rectangle dialog class
+					DlgDonut dlgDonut = new DlgDonut(); 
 					dlgDonut.setPoint(clickPosition);
 					dlgDonut.setColors(edgeColor, fillColor);
 					dlgDonut.setVisible(true);
@@ -280,7 +281,7 @@ public class PaintDrawingApp extends JFrame {
 				}
 
 				if (tglbtnRectangle.isSelected()) {
-					DlgRectangle dlgRectangle = new DlgRectangle(); //a new instance of the rectangle dialog class
+					DlgRectangle dlgRectangle = new DlgRectangle(); 
 					dlgRectangle.setPoint(clickPosition);
 					dlgRectangle.setColors(edgeColor, fillColor);
 					dlgRectangle.setVisible(true);
@@ -292,7 +293,7 @@ public class PaintDrawingApp extends JFrame {
 				}
 
 				if (tglbtnPoint.isSelected()) {
-					DlgPoint dlgPoint = new DlgPoint(); // a new instance of the rectangle dialog class
+					DlgPoint dlgPoint = new DlgPoint(); 
 					dlgPoint.setPoint(clickPosition);
 					dlgPoint.setColor(edgeColor);
 					dlgPoint.setVisible(true);
