@@ -1,6 +1,5 @@
-package stack;
-
 import java.awt.BorderLayout;
+
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -57,7 +56,7 @@ public class CircleDialog extends JDialog {
 	public CircleDialog() {
 		setModal(true);
 		setResizable(false);
-		setTitle("IT33-2021-NEDA-ARSENIJEVIC");
+		setTitle("IT33-2021-NEDA-ARSENIJEVIC-STACK");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

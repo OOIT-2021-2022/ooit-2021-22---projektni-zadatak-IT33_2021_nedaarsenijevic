@@ -40,7 +40,7 @@ public class PaintDrawingApp extends JFrame {
 	private Color edgeColor = Color.black;
 	private Color fillColor = Color.white;
 
-	// button group in which can be selected only one button
+	// button grupa gde mozemo jedan samo
 	private ButtonGroup btngroupShape = new ButtonGroup();
 
 	/**
