@@ -256,7 +256,7 @@ public class DlgCircle extends JDialog {
 		return this.circle;
 	}
 
-// method for coordinates seted in text field
+// method za coordinate u text field
 	
 	public void setPoint(Point p) {
 		textFieldX.setText("" + p.getX());

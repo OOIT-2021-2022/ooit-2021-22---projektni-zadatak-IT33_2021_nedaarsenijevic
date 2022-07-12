@@ -12,7 +12,7 @@ import java.awt.Color;
 
 public class PnlDrawing extends JPanel {
 
-	// List that contains all shapes
+	
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
 
 	/**
@@ -35,7 +35,7 @@ public class PnlDrawing extends JPanel {
 		}
 	}
 
-	// select shape at the click coordinate
+	
 	public void select(Point p) {
 		for (int i = shapes.size() - 1; i >= 0; i--) {
 			if (shapes.get(i).contains(p.getX(), p.getY())) {
@@ -53,14 +53,14 @@ public class PnlDrawing extends JPanel {
 		repaint();
 	}
 
-	// check the list of shapes for selected elements and return its index
+	
 	public int getSelected() {
 		for (int i = shapes.size() - 1; i >= 0; i--) {
 			if (shapes.get(i).isSelected()) {
 				return i;
 			}
 		}
-		return -1; // no selected elements
+		return -1; 
 	}
 
 	public ArrayList<Shape> getShapes() {
@@ -76,7 +76,7 @@ public class PnlDrawing extends JPanel {
 		repaint();
 	}
 
-	// get the shape at desired index, for modifying
+	
 	public Shape getShape(int index) {
 		return shapes.get(index);
 	}
