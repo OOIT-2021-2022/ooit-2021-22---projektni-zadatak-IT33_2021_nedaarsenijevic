@@ -3,34 +3,26 @@ package geometry;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public abstract class Line extends Shape {
-	
+public class Line extends Shape{
+
 	private Point startPoint;
 	private Point endPoint;
-	private boolean selected;
+		
+	// Konstruktori
 	
-	//Konstruktori
-	
-	public Line() {
+	public Line () {
 		
 	}
-	
 	public Line (Point startPoint, Point endPoint) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
-		
 	}
-	
 	public Line (Point startPoint, Point endPoint, boolean selected) {
-		this(startPoint, endPoint);
-		this.selected = selected;
+		this (startPoint, endPoint );
 		setSelected(selected);
 	}
 	
-	
-	
-	//Metoda za izracunavanje duzine linije
-	
+	// Metoda za izracunavanje duzine linije
 	public double length() {
 		return startPoint.distance(endPoint.getX(), endPoint.getY());
 	}
@@ -39,13 +31,10 @@ public abstract class Line extends Shape {
 		return startPoint.distance(x, y) + endPoint.distance(x, y) - length() <= 2;
 	}
 	
-	
-	//Metode pristupa
+	// Metode pristupa
 	public Point getStartPoint() {
 		return startPoint;
-		
 	}
-	
 	public void setStartPoint(Point startPoint) {
 		this.startPoint = startPoint;
 	}
@@ -53,39 +42,27 @@ public abstract class Line extends Shape {
 	public Point getEndPoint() {
 		return endPoint;
 	}
-	
 	public void setEndPoint(Point endPoint) {
 		this.endPoint = endPoint;
 	}
 	
-	public boolean isSelected() {
-		return selected;
-	}
-	
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
-	
-	
 	public boolean equals(Object obj) {
 		if (obj instanceof Line) {
-			 
+			
 			Line pomocna = (Line) obj;
 			if (this.startPoint.equals(pomocna.startPoint) && this.endPoint.equals(pomocna.endPoint)) {
 				return true;
 			} else {
 				return false;
 			}
+			
 		} else {
 			return false;
 		}
 	}
-	
-	public String toString ( ) {
-		return startPoint + "--->" + endPoint;
-		
+	public String toString() {
+		return startPoint + "-->" + endPoint; 
 	}
-	
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(Color.BLACK);
@@ -98,20 +75,21 @@ public abstract class Line extends Shape {
 		}
 		
 	}
-	
+	@Override
 	public void moveTo(int x, int y) {
-		
+				
 	}
 	
-	public void moveBy(int byX, byY) {
+	@Override
+	public void moveBy(int byX, int byY) {
 		startPoint.moveBy(byX, byY);
 		endPoint.moveBy(byX, byY);
 	}
-
 	
-	public int compareTo(Object obj) { //ovo uradimo za sve klase
+	@Override
+	public int compareTo(Object obj) {
 		if (obj instanceof Line) {
-			return (int) ((int) this.length() - ((Line) obj).length()));
+			return (int) (this.length() - ((Line) obj).length());
 		}
 		return 0;
 	}
