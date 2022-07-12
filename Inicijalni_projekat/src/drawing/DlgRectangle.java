@@ -64,6 +64,7 @@ public class DlgRectangle extends JDialog {
 		getContentPane().setLayout(gridBagLayout);
 		{
 			JPanel contentPanel = new JPanel();
+			contentPanel.setBackground(new Color(250, 235, 215));
 			GridBagConstraints gbc_contentPanel = new GridBagConstraints();
 			gbc_contentPanel.insets = new Insets(0, 0, 5, 0);
 			gbc_contentPanel.fill = GridBagConstraints.BOTH;
@@ -78,7 +79,8 @@ public class DlgRectangle extends JDialog {
 			contentPanel.setLayout(gbl_contentPanel);
 			{
 				JLabel lblDialogName = new JLabel("RECTANGLE");
-				lblDialogName.setFont(new Font("Bookman Old Style", Font.PLAIN, 18));
+				lblDialogName.setForeground(new Color(255, 20, 147));
+				lblDialogName.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 				GridBagConstraints gbc_lblDialogName = new GridBagConstraints();
 				gbc_lblDialogName.gridwidth = 4;
 				gbc_lblDialogName.insets = new Insets(0, 0, 5, 0);
@@ -88,7 +90,8 @@ public class DlgRectangle extends JDialog {
 			}
 			{
 				JLabel lblXCoordinate = new JLabel("Choose X coordinate:");
-				lblXCoordinate.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+				lblXCoordinate.setForeground(new Color(255, 20, 147));
+				lblXCoordinate.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 				GridBagConstraints gbc_lblXCoordinate = new GridBagConstraints();
 				gbc_lblXCoordinate.anchor = GridBagConstraints.EAST;
 				gbc_lblXCoordinate.insets = new Insets(0, 0, 5, 5);
@@ -108,7 +111,8 @@ public class DlgRectangle extends JDialog {
 			}
 			{
 				JLabel lblYCoordinate = new JLabel("Choose Y coordinate:");
-				lblYCoordinate.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+				lblYCoordinate.setForeground(new Color(255, 20, 147));
+				lblYCoordinate.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 				GridBagConstraints gbc_lblYCoordinate = new GridBagConstraints();
 				gbc_lblYCoordinate.anchor = GridBagConstraints.EAST;
 				gbc_lblYCoordinate.insets = new Insets(0, 0, 5, 5);
@@ -136,7 +140,8 @@ public class DlgRectangle extends JDialog {
 			}
 			{
 				JLabel lblWidth = new JLabel("Width:");
-				lblWidth.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+				lblWidth.setForeground(new Color(255, 20, 147));
+				lblWidth.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 				GridBagConstraints gbc_lblWidth = new GridBagConstraints();
 				gbc_lblWidth.anchor = GridBagConstraints.EAST;
 				gbc_lblWidth.insets = new Insets(0, 0, 5, 5);
@@ -156,7 +161,8 @@ public class DlgRectangle extends JDialog {
 			}
 			{
 				JLabel lblHeight = new JLabel("Height:");
-				lblHeight.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
+				lblHeight.setForeground(new Color(255, 20, 147));
+				lblHeight.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 				GridBagConstraints gbc_lblHeight = new GridBagConstraints();
 				gbc_lblHeight.anchor = GridBagConstraints.EAST;
 				gbc_lblHeight.insets = new Insets(0, 0, 5, 5);
@@ -177,6 +183,7 @@ public class DlgRectangle extends JDialog {
 			{
 				{
 					JButton btnFillColor = new JButton("Fill color");
+					btnFillColor.setBackground(new Color(255, 182, 193));
 					btnFillColor.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							fillColor = JColorChooser.showDialog(null, "Choose fill color", fillColor);
@@ -203,6 +210,7 @@ public class DlgRectangle extends JDialog {
 				}
 			}
 			JButton btnEdgeColor = new JButton("Edge color");
+			btnEdgeColor.setBackground(new Color(255, 182, 193));
 			btnEdgeColor.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					edgeColor = JColorChooser.showDialog(null, "Choose edge color", edgeColor);
@@ -221,6 +229,7 @@ public class DlgRectangle extends JDialog {
 		}
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBackground(new Color(250, 235, 215));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			GridBagConstraints gbc_buttonPane = new GridBagConstraints();
 			gbc_buttonPane.anchor = GridBagConstraints.NORTH;

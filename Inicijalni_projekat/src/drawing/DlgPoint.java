@@ -58,6 +58,7 @@ public class DlgPoint extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 330, 225);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(250, 235, 215));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.NORTH);
 		GridBagLayout gbl_contentPanel = new GridBagLayout();
@@ -68,7 +69,7 @@ public class DlgPoint extends JDialog {
 		contentPanel.setLayout(gbl_contentPanel);
 		{
 			JLabel lblDialogName = new JLabel("POINT");
-			lblDialogName.setForeground(UIManager.getColor("textHighlight"));
+			lblDialogName.setForeground(new Color(255, 20, 147));
 			lblDialogName.setFont(new Font("Baskerville Old Face", Font.PLAIN, 22));
 			GridBagConstraints gbc_lblDialogName = new GridBagConstraints();
 			gbc_lblDialogName.gridwidth = 7;
@@ -87,7 +88,7 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			JLabel lblXcoordinate = new JLabel("X coordinate:");
-			lblXcoordinate.setForeground(Color.BLUE);
+			lblXcoordinate.setForeground(new Color(255, 20, 147));
 			lblXcoordinate.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
 			GridBagConstraints gbc_lblXcoordinate = new GridBagConstraints();
 			gbc_lblXcoordinate.gridwidth = 2;
@@ -99,6 +100,7 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			textFieldX = new JTextField();
+			textFieldX.setBackground(new Color(255, 228, 196));
 			textFieldX.setForeground(Color.BLACK);
 			textFieldX.setFont(new Font("Bookman Old Style", Font.PLAIN, 11));
 			GridBagConstraints gbc_textFieldX = new GridBagConstraints();
@@ -112,7 +114,7 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			JLabel lblYCoordinate = new JLabel("Y coordinate:");
-			lblYCoordinate.setForeground(Color.BLUE);
+			lblYCoordinate.setForeground(new Color(255, 20, 147));
 			lblYCoordinate.setFont(new Font("Baskerville Old Face", Font.PLAIN, 18));
 			GridBagConstraints gbc_lblYCoordinate = new GridBagConstraints();
 			gbc_lblYCoordinate.gridwidth = 2;
@@ -124,6 +126,8 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			textFieldY = new JTextField();
+			textFieldY.setBackground(new Color(255, 235, 205));
+			textFieldY.setForeground(new Color(255, 218, 185));
 			textFieldY.setFont(new Font("Bookman Old Style", Font.PLAIN, 11));
 			GridBagConstraints gbc_textFieldY = new GridBagConstraints();
 			gbc_textFieldY.gridwidth = 2;
@@ -156,6 +160,7 @@ public class DlgPoint extends JDialog {
 		}
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBackground(new Color(255, 228, 225));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{

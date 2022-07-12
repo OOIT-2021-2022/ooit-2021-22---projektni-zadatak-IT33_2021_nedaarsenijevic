@@ -25,6 +25,11 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 		setSelected(selected); //moramo ovako jer ne postoji konstruktor koji bi setovao samo selected
 	}
 	
+	public Donut(Point point, int outerRadius, int innerRadius2, Color edgeColor, Color fillColor) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	//REDEFINISANJE
 	public double area() { //od povrsine velikog kruga smo oduzeli povrsinu malog kruga kako bismo dobili prsten i njegovu povrsinu
 		return super.area() - innerRadius * innerRadius * Math.PI; 

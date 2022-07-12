@@ -54,10 +54,12 @@ public class DlgDonut extends JDialog {
 	 * Create the dialog.
 	 */
 	public DlgDonut() {
+		setBackground(new Color(255, 255, 224));
 		setModal(true);
 		setTitle("Donut");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(255, 250, 205));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_contentPanel = new GridBagLayout();
@@ -68,7 +70,7 @@ public class DlgDonut extends JDialog {
 		contentPanel.setLayout(gbl_contentPanel);
 		{
 			JLabel lblDialogName = new JLabel("DONUT");
-			lblDialogName.setForeground(Color.RED);
+			lblDialogName.setForeground(new Color(255, 0, 255));
 			lblDialogName.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
 			GridBagConstraints gbc_lblDialogName = new GridBagConstraints();
 			gbc_lblDialogName.gridwidth = 3;
@@ -88,7 +90,7 @@ public class DlgDonut extends JDialog {
 		}
 		{
 			JLabel lblXcoord = new JLabel("Choose X coordinate center :");
-			lblXcoord.setForeground(Color.RED);
+			lblXcoord.setForeground(new Color(255, 0, 255));
 			lblXcoord.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
 			GridBagConstraints gbc_lblXcoord = new GridBagConstraints();
 			gbc_lblXcoord.insets = new Insets(0, 0, 5, 5);
@@ -99,6 +101,7 @@ public class DlgDonut extends JDialog {
 		}
 		{
 			textFieldX = new JTextField();
+			textFieldX.setBackground(new Color(250, 235, 215));
 			textFieldX.setForeground(Color.BLACK);
 			textFieldX.setFont(new Font("Baskerville Old Face", Font.PLAIN, 15));
 			GridBagConstraints gbc_textFieldX = new GridBagConstraints();
@@ -111,7 +114,7 @@ public class DlgDonut extends JDialog {
 		}
 		{
 			JLabel lblYcoord = new JLabel("Choose Y coordinate center :");
-			lblYcoord.setForeground(Color.RED);
+			lblYcoord.setForeground(Color.MAGENTA);
 			lblYcoord.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
 			GridBagConstraints gbc_lblYcoord = new GridBagConstraints();
 			gbc_lblYcoord.insets = new Insets(0, 0, 5, 5);
@@ -122,6 +125,7 @@ public class DlgDonut extends JDialog {
 		}
 		{
 			textFieldY = new JTextField();
+			textFieldY.setBackground(new Color(250, 235, 215));
 			textFieldY.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 			GridBagConstraints gbc_textFieldY = new GridBagConstraints();
 			gbc_textFieldY.insets = new Insets(0, 0, 5, 5);
@@ -133,7 +137,7 @@ public class DlgDonut extends JDialog {
 		}
 		{
 			JLabel lblOuterRadius = new JLabel("Set outer radius :");
-			lblOuterRadius.setForeground(Color.RED);
+			lblOuterRadius.setForeground(Color.MAGENTA);
 			lblOuterRadius.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
 			GridBagConstraints gbc_lblOuterRadius = new GridBagConstraints();
 			gbc_lblOuterRadius.anchor = GridBagConstraints.EAST;
@@ -144,6 +148,7 @@ public class DlgDonut extends JDialog {
 		}
 		{
 			textFieldOuterRadius = new JTextField();
+			textFieldOuterRadius.setBackground(new Color(250, 235, 215));
 			textFieldOuterRadius.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 			GridBagConstraints gbc_textFieldOuterRadius = new GridBagConstraints();
 			gbc_textFieldOuterRadius.insets = new Insets(0, 0, 5, 5);
@@ -155,7 +160,7 @@ public class DlgDonut extends JDialog {
 		}
 		{
 			JLabel lblInnerRadius = new JLabel("Set inner radius :");
-			lblInnerRadius.setForeground(Color.RED);
+			lblInnerRadius.setForeground(Color.MAGENTA);
 			lblInnerRadius.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
 			GridBagConstraints gbc_lblInnerRadius = new GridBagConstraints();
 			gbc_lblInnerRadius.anchor = GridBagConstraints.EAST;
@@ -168,6 +173,8 @@ public class DlgDonut extends JDialog {
 			{
 				{
 					textFieldInnerRadius = new JTextField();
+					textFieldInnerRadius.setBackground(new Color(250, 235, 215));
+					textFieldInnerRadius.setForeground(new Color(255, 228, 225));
 					textFieldInnerRadius.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 					GridBagConstraints gbc_textFieldInnerRadius = new GridBagConstraints();
 					gbc_textFieldInnerRadius.insets = new Insets(0, 0, 5, 5);
@@ -178,7 +185,7 @@ public class DlgDonut extends JDialog {
 					textFieldInnerRadius.setColumns(10);
 				}
 				JButton btnEdgeColor = new JButton("Edge color");
-				btnEdgeColor.setBackground(Color.BLUE);
+				btnEdgeColor.setBackground(new Color(199, 21, 133));
 				btnEdgeColor.setForeground(Color.DARK_GRAY);
 				btnEdgeColor.setFont(new Font("Baskerville Old Face", Font.PLAIN, 13));
 				btnEdgeColor.addActionListener(new ActionListener() {
@@ -191,10 +198,17 @@ public class DlgDonut extends JDialog {
 					}
 				});
 				JButton btnFillColor = new JButton("Fill color");
-				btnFillColor.setBackground(Color.BLUE);
+				btnFillColor.setBackground(new Color(199, 21, 133));
 				btnFillColor.setForeground(Color.DARK_GRAY);
 				btnFillColor.setFont(new Font("Baskerville Old Face", Font.PLAIN, 13));
 				btnFillColor.addActionListener(new ActionListener() {
+					public void setDonut(Donut d) {
+						setPoint(d.getCenter());
+						setColors(d.getColor(), d.getFillColor());
+						textFieldOuterRadius.setText("" + d.getRadius());
+						textFieldInnerRadius.setText("" + d.getInnerRadius());
+
+					}
 					public void actionPerformed(ActionEvent e) {
 
 						fillColor = JColorChooser.showDialog(null, "Choose fill color", edgeColor);
