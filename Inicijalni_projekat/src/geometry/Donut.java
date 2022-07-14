@@ -71,6 +71,7 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 	
 	public void draw(Graphics g) {
 		super.draw(g); //spoljasnji krug
+		this.fill(g);
 		g.setColor(Color.BLACK);
 		g.drawOval(getCenter().getX() - innerRadius, getCenter().getY() - innerRadius, innerRadius*2, innerRadius*2);
 		//unutrasnji krug
@@ -98,9 +99,13 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 	}
 
 
-	public Color getFillColor() {
-		// TODO Auto-generated method stub
-		return null;
+	public Color getFillColor(Graphics g) {
+		g.setColor(this.fillColor);
+		super.fill(g);
+		g.setColor(Color.WHITE);
+		g.fillOval(getCenter().getX() - this.innerRadius, getCenter().getY() - this.innerRadius, this.innerRadius * 2,
+				this.innerRadius * 2);
+		
 	}
 
 }

@@ -3,7 +3,7 @@ package geometry;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Circle extends Shape {
+public class Circle extends ShapeSurface {
 	private Point center;
 	private int radius;
 	
@@ -85,7 +85,7 @@ public class Circle extends Shape {
 	public void draw(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.drawOval(center.getX() - radius, center.getY() - radius, radius*2,  radius*2);
-		
+		this.fill(g);
 		if(isSelected()) {
 			g.setColor(Color.BLUE);
 			g.drawRect(center.getX() -2, center.getY()-2, 4, 4);
@@ -112,6 +112,14 @@ public class Circle extends Shape {
 			return  (int) (this.area() - ((Circle) obj).area());
 		}
 		return 0;
+	}
+
+	@Override
+	public void fill(Graphics g) {
+		g.setColor(this.fillColor);
+		g.fillOval(this.center.getX() - this.radius + 1, this.center.getY() - this.radius + 1, this.radius * 2 - 2,
+				this.radius * 2 - 2);
+		
 	}
 
 	

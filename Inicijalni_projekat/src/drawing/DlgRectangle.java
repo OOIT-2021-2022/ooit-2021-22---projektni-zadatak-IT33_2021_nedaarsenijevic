@@ -301,7 +301,7 @@ public class DlgRectangle extends JDialog {
 	}
 
 	public void setRectangle(Rectangle r) {
-		setPoint(r.getUpperLeftPoint());
+		setPoint(r.getUpperLeft());
 		setColors(r.getColor(), r.getFillColor());
 		textFieldWidth.setText("" + r.getWidth());
 		textFieldHeight.setText("" + r.getHeight());

@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class Rectangle extends Shape {
+public class Rectangle extends ShapeSurface {
 	
 	private Point upperLeft;
 	private int width;
@@ -109,7 +109,7 @@ public class Rectangle extends Shape {
 	public void draw(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
-		
+		this.fill(g);
 		if(isSelected()) {
 			g.setColor(Color.BLUE);
 			g.drawRect(upperLeft.getX()-2, upperLeft.getY()-2, 4, 4);
@@ -136,6 +136,14 @@ public class Rectangle extends Shape {
 			return (int) (this.area() - ((Rectangle) o).area());
 		}
 		return 0;
+	}
+
+	@Override
+	public void fill(Graphics g) {
+		g.setColor(fillColor);
+		g.fillRect(this.upperLeft.getX() + 1, this.upperLeft.getY() + 1, this.width - 1, this.height - 1);
+	
+		
 	}
 }
 

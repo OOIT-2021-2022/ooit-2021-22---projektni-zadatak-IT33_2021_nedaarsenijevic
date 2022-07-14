@@ -87,7 +87,7 @@ public class PaintDrawingApp extends JFrame {
 		tglbtnSelect.setForeground(new Color(255, 20, 147));
 		tglbtnSelect.setBackground(new Color(192, 192, 192));
 		tglbtnSelect.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 16));
-		tglbtnSelect.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/click.png")));
+		//tglbtnSelect.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/click.png")));
 		tlgbButtonPanel.add(tglbtnSelect);
 		btngroupShape.add(tglbtnSelect);
 
@@ -95,7 +95,7 @@ public class PaintDrawingApp extends JFrame {
 		tglbtnPoint.setBackground(new Color(250, 235, 215));
 		tglbtnPoint.setForeground(new Color(255, 20, 147));
 		tglbtnPoint.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 16));
-		tglbtnPoint.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/full-stop.png")));
+		//tglbtnPoint.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/full-stop.png")));
 		tglbtnPoint.setSelected(true);
 		tglbtnPoint.setHorizontalAlignment(SwingConstants.LEFT);
 		tlgbButtonPanel.add(tglbtnPoint);
@@ -104,28 +104,28 @@ public class PaintDrawingApp extends JFrame {
 		JToggleButton tglbtnLine = new JToggleButton("Line");
 		tglbtnLine.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 16));
 		tglbtnLine.setForeground(new Color(255, 20, 147));
-		tglbtnLine.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/minus.png")));
+		//tglbtnLine.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/minus.png")));
 		tlgbButtonPanel.add(tglbtnLine);
 		btngroupShape.add(tglbtnLine);
 
 		JToggleButton tglbtnRectangle = new JToggleButton("Rectangle");
 		tglbtnRectangle.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 16));
 		tglbtnRectangle.setForeground(new Color(255, 20, 147));
-		tglbtnRectangle.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/rectangle.png")));
+		//tglbtnRectangle.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/rectangle.png")));
 		tlgbButtonPanel.add(tglbtnRectangle);
 		btngroupShape.add(tglbtnRectangle);
 
 		JToggleButton tglbtnCircle = new JToggleButton("Circle");
 		tglbtnCircle.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 16));
 		tglbtnCircle.setForeground(new Color(255, 20, 147));
-		tglbtnCircle.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/full-moon.png")));
+		//tglbtnCircle.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/full-moon.png")));
 		tlgbButtonPanel.add(tglbtnCircle);
 		btngroupShape.add(tglbtnCircle);
 
 		JToggleButton tglbtnDonut = new JToggleButton("Donut");
 		tglbtnDonut.setForeground(new Color(255, 20, 147));
 		tglbtnDonut.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 16));
-		tglbtnDonut.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/donut.png")));
+		//tglbtnDonut.setIcon(new ImageIcon(PaintDrawingApp.class.getResource("/icons/donut.png")));
 		tlgbButtonPanel.add(tglbtnDonut);
 		btngroupShape.add(tglbtnDonut); // ubacen oblik u grupu
 
@@ -196,7 +196,7 @@ public class PaintDrawingApp extends JFrame {
 					Rectangle rect = dlgRectangle.getRectangle();
 
 					if (rect != null) {
-						((Rectangle) shape).setUpperLeftPoint(rect.getUpperLeftPoint());
+						((Rectangle) shape).setUpperLeft(rect.getUpperLeft());
 						((Rectangle) shape).setWidth(rect.getWidth());
 						((Rectangle) shape).setHeight(rect.getHeight());
 						shape.setColor(rect.getColor());
