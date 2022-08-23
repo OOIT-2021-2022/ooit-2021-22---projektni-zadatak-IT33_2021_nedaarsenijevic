@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
-
+//nije potrebno za projekat
 public class DlgTest extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
