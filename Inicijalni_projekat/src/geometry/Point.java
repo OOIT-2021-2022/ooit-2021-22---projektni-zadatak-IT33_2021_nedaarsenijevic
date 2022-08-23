@@ -29,12 +29,17 @@ public class Point extends Shape {
 		this.x = x;
 		this.y = y;
 	}
+
 	
-	public Point(int x, int y, boolean selected) {
-		//Ne pisemo ponovo this za x i this za y nego iskoristimo vec napisano da ne bismo dupirali kod na dva mesta
-		this(x,y); //to pisemo na ovaj nacin
-		//this.selected = selected; brisemo jer smo obrisali varijablu
-		setSelected(selected);
+	public Point(int x, int y, Color color) {
+		this(x, y);
+		this.color = color;
+	}
+	
+	public Point(int x, int y, Color color, boolean selected) {
+		
+		this(x, y, color);
+		this.selected = selected;
 	}
 	
 	public boolean contains(int x, int y) {
@@ -44,6 +49,11 @@ public class Point extends Shape {
 		 * if (this.distance(x, y) <= 2) return true; else return false;
 		 */
 	}
+	
+	public boolean contains(Point clickPoint) {
+		return this.distance(clickPoint.x, clickPoint.getY()) <= 2;
+	}
+
 	 
 	/*public boolean contains(int x, int y) {
 		return (upperLeft.getX() <x && upperLeft.getX() + width > x && 
@@ -91,8 +101,15 @@ public class Point extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
+		g.setColor(this.color);
 		g.drawLine(x-2, y, x+2, y); //horizontalna linija
 		g.drawLine(x, y-2, x, y+2); //vertikalna linija
+
+		if (isSelected()) {
+			g.setColor(color.BLUE);
+			g.drawRect(x - 2, y - 2, 4, 4);
+			g.setColor(Color.black);
+		}
 	}
 	@Override
 	public void moveTo(int x, int y) {
@@ -109,7 +126,8 @@ public class Point extends Shape {
 	@Override
 	public int compareTo(Object obj) {
 		if (obj instanceof Point) {
-			return (int) (this.distance(0, 0) - ((Point) obj).distance(0, 0));
+			Point shapeToCompare = (Point) obj;
+			return (int) (this.distance(0, 0) - shapeToCompare.distance(0, 0));
 		}
 		return 0;
 	}

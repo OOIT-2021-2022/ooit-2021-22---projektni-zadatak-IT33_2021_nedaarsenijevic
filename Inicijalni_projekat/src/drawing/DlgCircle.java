@@ -1,5 +1,6 @@
 package drawing;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -268,9 +269,10 @@ public class DlgCircle extends JDialog {
 		setColors(c.getColor(), c.getFillColor());
 		textFieldRadius.setText("" + c.getRadius());
 	}
-
+	
 	public void setColors(Color edgeColor, Color fillColor) {
 		this.edgeColor = edgeColor;
 		this.fillColor = fillColor;
 	}
+	
 }

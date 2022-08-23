@@ -8,7 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import geometry.Circle;
 import geometry.Point;
@@ -18,7 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
@@ -299,14 +297,14 @@ public class DlgRectangle extends JDialog {
 	public Rectangle getRectangle() {
 		return rectangle;
 	}
-
+	
 	public void setRectangle(Rectangle r) {
 		setPoint(r.getUpperLeft());
 		setColors(r.getColor(), r.getFillColor());
 		textFieldWidth.setText("" + r.getWidth());
 		textFieldHeight.setText("" + r.getHeight());
 	}
-
+	
 	public void setColors(Color edgeColor, Color fillColor) {
 		this.edgeColor = edgeColor;
 		this.fillColor = fillColor;

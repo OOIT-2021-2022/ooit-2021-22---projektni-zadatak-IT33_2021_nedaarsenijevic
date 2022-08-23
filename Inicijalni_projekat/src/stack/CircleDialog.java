@@ -1,5 +1,5 @@
+package stack;
 import java.awt.BorderLayout;
-
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 public class CircleDialog extends JDialog {
 
@@ -157,6 +158,12 @@ public class CircleDialog extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					dispose();
+					}
+				});
+				cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}

@@ -20,7 +20,6 @@ import geometry.Shape;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Color;
@@ -29,7 +28,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.ImageIcon;
 import java.awt.Font;
 
 public class PaintDrawingApp extends JFrame {
@@ -213,7 +211,12 @@ public class PaintDrawingApp extends JFrame {
 
 					if (donut != null) {
 						((Donut) shape).setCenter(donut.getCenter());
-						((Donut) shape).setRadius(donut.getRadius());
+						try {
+							((Donut) shape).setRadius(donut.getRadius());
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						((Donut) shape).setInnerRadius(donut.getInnerRadius());
 						shape.setColor(donut.getColor());
 						((Donut) shape).setFillColor(donut.getFillColor());
@@ -228,7 +231,13 @@ public class PaintDrawingApp extends JFrame {
 
 					if (circle != null) {
 						((Circle) shape).setCenter(circle.getCenter());
-						((Circle) shape).setRadius(circle.getRadius());
+						
+						try {
+							((Circle) shape).setRadius(circle.getRadius());
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						//shape.moveTo(dlgCircle.getCircle().getCenter().getX(), dlgCircle.getCircle().getCenter().getY());
 						shape.setColor(circle.getColor());
 						((Circle) shape).setFillColor(circle.getFillColor());

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Circle extends ShapeSurface {
-	private Point center;
+	protected Point center;
 	private int radius;
 	
 	//KONSTRUKTORI
@@ -23,6 +23,12 @@ public class Circle extends ShapeSurface {
 		setSelected(selected);
 		
 	}
+	public Circle(Point center, int radius, Color edgeColor, Color fillColor) {
+		this(center, radius);
+		this.color = edgeColor;
+		this.fillColor = fillColor;
+	}
+
 	
 	
 	
@@ -32,8 +38,8 @@ public class Circle extends ShapeSurface {
 		return center.distance( x, y) <= radius;
 	}
 	
-	public boolean contains (Point p) {
-		return center.distance(p.getX(), p.getY()) <= radius;
+	public boolean contains(Point clickPoint) {
+		return getCenter().distance(clickPoint.getX(), clickPoint.getY()) <= radius;
 	}
 
 	//Povrsina kruga ovde povratni tip mora biti double ne moze int jer imamo PI
@@ -71,7 +77,7 @@ public class Circle extends ShapeSurface {
 	
 	public void setRadius(int radius) throws Exception {
 		if (radius < 0) 
-			throw new Exception("Radius ne može biti manji od 0!");
+			throw new Exception("Radius ne moze biti manji od 0!");
 		
 		this.radius = radius;
 	}
@@ -97,18 +103,22 @@ public class Circle extends ShapeSurface {
 	}
 
 	
+
+	@Override
 	public void moveTo(int x, int y) {
 		center.moveTo(x, y);
 	}
 
-	
+	@Override
 	public void moveBy(int byX, int byY) {
 		center.moveBy(byX, byY);
 	}
 
+
 	
 	public int compareTo(Object obj) {
 		if(obj instanceof Circle) {
+			Circle shapeToCompare = (Circle) obj;
 			return  (int) (this.area() - ((Circle) obj).area());
 		}
 		return 0;

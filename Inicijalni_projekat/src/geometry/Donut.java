@@ -20,13 +20,22 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 		
 	}
 	
-	public Donut (Point center, int radius, int innerRadius, boolean selected) {
+	public Donut(Point center, int radius, int innerRadius, Color edgeColor, Color fillColor) {
 		this(center, radius, innerRadius);
-		setSelected(selected); //moramo ovako jer ne postoji konstruktor koji bi setovao samo selected
+		this.color = edgeColor;
+		this.fillColor = fillColor;
 	}
 	
-	public Donut(Point point, int outerRadius, int innerRadius2, Color edgeColor, Color fillColor) {
-		// TODO Auto-generated constructor stub
+	public Donut(Point center, int radius, int innerRadius, Color edgeColor, Color fillColor, boolean selected) {
+		/*
+		 * this.innerRadius = innerRadius; this.center = center; //protected pa moze
+		 * ovako setRadius(radius); //ovo smo ostavili private setSelected(selected);
+		 */
+
+		// drugi nacin
+		// prva naredba!!
+		this(center, radius, innerRadius, edgeColor, fillColor);
+		this.selected = selected;
 	}
 
 
@@ -39,11 +48,9 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 		return (super.contains(x, y) && getCenter().distance(x, y) >= innerRadius);
 	}
 	
-	@Override
-	public boolean contains(Point p) {
-		return super.contains(p) && getCenter().distance(p.getX(), p.getY()) >= innerRadius;
+	public boolean contains(Point clickPoint) {
+		return super.contains(clickPoint) && getCenter().distance(clickPoint.getX(), clickPoint.getY()) >= innerRadius;
 	}
-	
 	
 	public boolean equals(Object obj) {
 		if(obj instanceof Donut) {
@@ -85,28 +92,24 @@ public class Donut extends Circle { //extends je kljucna rec jer nasledjuje iz k
 		}
 	}
 	
+	@Override
 	public int compareTo(Object obj) {
 		if (obj instanceof Donut) {
-			return (int) (this.area() - ((Donut) obj).area());
+			Donut shapeToCompare = (Donut) obj;
+			return (int) (this.area() - shapeToCompare.area());
 		}
 		return 0;
 	}
 
-
-	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Color getFillColor(Graphics g) {
+	
+	public void fill(Graphics g) {
 		g.setColor(this.fillColor);
 		super.fill(g);
 		g.setColor(Color.WHITE);
 		g.fillOval(getCenter().getX() - this.innerRadius, getCenter().getY() - this.innerRadius, this.innerRadius * 2,
 				this.innerRadius * 2);
-		
 	}
+
 
 }
 

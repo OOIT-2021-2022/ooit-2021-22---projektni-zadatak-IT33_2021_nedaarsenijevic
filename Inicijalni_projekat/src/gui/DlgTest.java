@@ -130,8 +130,8 @@ public class DlgTest extends JDialog {
 				btnIzmeniBoju.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						DlgTest dlgTest = new DlgTest();
+						//String[] rgb = dlm.getElementAt(lstBoje.getSelectedIndex()).toString().split(" ");error
 						
-						String[] rgb = dlm.getElementAt(lstBoje.getSelectedIndex()).toString().split(" ");
 					}
 				});
 				buttonPane.add(btnIzmeniBoju);

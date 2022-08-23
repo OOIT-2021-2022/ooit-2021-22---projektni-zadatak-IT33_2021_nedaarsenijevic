@@ -29,32 +29,48 @@ public class Rectangle extends ShapeSurface {
 		this.width = width;
 	}
 	
+	public Rectangle(Point upperLeftPoint, int width, int height, Color edgeColor, Color fillColor) {
+		this(upperLeftPoint, width, height);
+		this.color = edgeColor;
+		this.fillColor = fillColor;
+	}
+	
+	public Rectangle(Point upperLeftPoint, int width, int height, Color edgeColor, Color fillColor, boolean selected) {
+		this(upperLeftPoint, width, height, edgeColor, fillColor);
+		this.selected = selected;
+	}
+	
 	public boolean contains(int x, int y) {
 		return (upperLeft.getX() <x && upperLeft.getX() + width > x && 
 		 upperLeft.getY() > y ); }
 	
+	//public boolean contains(int x, int y) {
+		//return x >= upperLeftPoint.getX() && x <= this.upperLeftPoint.getX() + width && y >= upperLeftPoint.getY()
+			//	&& y <= getUpperLeftPoint().getY() + height; }
+	
+	public boolean contains(Point clickPoint) {
+		return clickPoint.getX() >= upperLeft.getX() && clickPoint.getX() <= this.upperLeft.getX() + width
+				&& clickPoint.getY() >= upperLeft.getY()
+				&& clickPoint.getY() <= getUpperLeft().getY() + getHeight();
+	}
+
+	
    public Rectangle (Point upperLeft, int width, int height, boolean selected) {
 		this(upperLeft, width, height );
 		setSelected(selected);
-	}
-	
-	//public boolean contains(int x, int y) {
-		 //return (upperLeft.getX() <x && upperLeft.getX() + width > x && upperLeft.getY() > y );
-	//}
-	
-	public Rectangle(geometry.Point point, int width2, int height2, Color edgeColor, Color fillColor) {
-		// TODO Auto-generated constructor stub
-	}
+	} //proveri
+   
 
-	public boolean contains(Point p) {
-		return (upperLeft.getX() < p.getX() && upperLeft.getX() + width > p.getX()
-				&& upperLeft.getY() < p.getY() && upperLeft.getY() + height > p.getY());
-	}
 	
 	//Povrsina pravougaonika
 	public int area() {
 		return width * height;
 	}
+	
+	public int circumference() {
+		return 2 * (width + height);
+	}
+
 	
 	//Obim pravougaonika
 	public int circuference() {
@@ -100,26 +116,28 @@ public class Rectangle extends ShapeSurface {
 	}
 	
 	
-	public String toString () {
-		
-		return "upper Left point: " + upperLeft + " ,width " + width + ",height" + height;
-		
+	public String toString() {
+		return "Upper left point:" + upperLeft + ", width =" + width + ",height = " + height;
 	}
+
 	
+	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.BLACK);
+		g.setColor(this.color);
 		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
 		this.fill(g);
-		if(isSelected()) {
-			g.setColor(Color.BLUE);
-			g.drawRect(upperLeft.getX()-2, upperLeft.getY()-2, 4, 4);
-			g.drawRect(upperLeft.getX()+ width -2, upperLeft.getY()-2, 4, 4);
-			g.drawRect(upperLeft.getX()-2, upperLeft.getY()+height-2, 4, 4);
-			g.drawRect(upperLeft.getX()+width-2, upperLeft.getY()+height-2, 4, 4);
+		if (isSelected()) {
+			g.setColor(Color.blue);
+			g.drawRect(upperLeft.getX() - 2, upperLeft.getY() - 2, 4, 4);
+			g.drawRect(upperLeft.getX() + width - 2, upperLeft.getY() - 2, 4, 4);
+			g.drawRect(upperLeft.getX() - 2, upperLeft.getY() + height - 2, 4, 4);
+			g.drawRect(upperLeft.getX() + width - 2, upperLeft.getY() + height - 2, 4, 4);
+			g.setColor(Color.black);
 		}
-		
 	}
 	
+	
+
 	@Override
 	public void moveTo(int x, int y) {
 		upperLeft.moveTo(x, y);
@@ -131,9 +149,10 @@ public class Rectangle extends ShapeSurface {
 	}
 	
 	@Override
-	public int compareTo(Object o) {
-		if (o instanceof Rectangle) {
-			return (int) (this.area() - ((Rectangle) o).area());
+	public int compareTo(Object obj) {
+		if (obj instanceof Rectangle) {
+			Rectangle shapeToCompare = (Rectangle) obj;
+			return this.area() - shapeToCompare.area();
 		}
 		return 0;
 	}
@@ -145,6 +164,8 @@ public class Rectangle extends ShapeSurface {
 	
 		
 	}
+	
+	
 }
 
 

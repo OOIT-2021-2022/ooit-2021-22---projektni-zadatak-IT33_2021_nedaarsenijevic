@@ -17,9 +17,15 @@ public class Line extends Shape{
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
 	}
-	public Line (Point startPoint, Point endPoint, boolean selected) {
-		this (startPoint, endPoint );
-		setSelected(selected);
+	
+	public Line(Point startPoint, Point endPoint, Color color) {
+		this(startPoint, endPoint);
+		this.color = color;
+	}
+
+	public Line(Point startPoint, Point endPoint, Color color, boolean selected) {
+		this(startPoint, endPoint, color);
+		this.selected = selected;
 	}
 	
 	// Metoda za izracunavanje duzine linije
@@ -29,6 +35,11 @@ public class Line extends Shape{
 	
 	public boolean contains(int x, int y) {
 		return startPoint.distance(x, y) + endPoint.distance(x, y) - length() <= 2;
+	}
+	
+	public boolean contains(Point clickPoint) {
+		return this.startPoint.distance(clickPoint.getX(), clickPoint.getY())
+				+ this.endPoint.distance(clickPoint.getX(), clickPoint.getY()) - length() <= 2;
 	}
 	
 	// Metode pristupa
@@ -65,19 +76,21 @@ public class Line extends Shape{
 	}
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.BLACK);
+		g.setColor(this.color);
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
 		
 		if(isSelected()) {
 			g.setColor(Color.BLUE);
 			g.drawRect(startPoint.getX()-2, startPoint.getY()-2, 4, 4);
 			g.drawRect(endPoint.getX()-2, endPoint.getY()-2, 4, 4);
+			g.setColor(Color.black);
 		}
 		
 	}
 	@Override
 	public void moveTo(int x, int y) {
-				
+		startPoint.moveTo(x, y);
+		endPoint.moveTo(x, y);
 	}
 	
 	@Override
@@ -89,7 +102,8 @@ public class Line extends Shape{
 	@Override
 	public int compareTo(Object obj) {
 		if (obj instanceof Line) {
-			return (int) (this.length() - ((Line) obj).length());
+			Line shapeToCompare = (Line) obj;
+			return (int) (this.length() - shapeToCompare.length());
 		}
 		return 0;
 	}

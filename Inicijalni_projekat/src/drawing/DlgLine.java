@@ -1,6 +1,7 @@
 package drawing;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -13,7 +14,7 @@ import javax.swing.border.EmptyBorder;
 import geometry.Line;
 import geometry.Point;
 
-import java.awt.GridLayout;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -264,7 +265,7 @@ public class DlgLine extends JDialog {
 		}
 	}
 
-	//geting coordinates 
+	//Za koordinatee 
 	
 	public void setLine(Point startPoint, Point endPoint) {
 		textFieldX.setText("" + startPoint.getX());
